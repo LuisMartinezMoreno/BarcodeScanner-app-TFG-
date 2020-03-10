@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+    height="24"
+    width="24"
+    viewBox= "0 0 24 24">
+    <path android:fillColor="@color/white"
+        android:pathData="
+        M4,6H6V18H4V6
+        M7,6H8V18H7V6
+        M9,6H12V18H9V6
+        M13,6H14V18H13V6
+        M16,6H18V18H16V6
+        M19,6H20V18H19V6Z" />
+    <path android:fillColor="@color/white"
+        android:pathData="
+        M2,4V8H0V4A2,2 0 0,1 2,2H6V4H2
+        M22,2A2,2 0 0,1 24,4V8H22V4H18V2H22
+        M2,16V20H6V22H2A2,2 0 0,1 0,20V16H2
+        M22,20V16H24V20A2,2 0 0,1 22,22H18V20H22Z" />
+</vector>
