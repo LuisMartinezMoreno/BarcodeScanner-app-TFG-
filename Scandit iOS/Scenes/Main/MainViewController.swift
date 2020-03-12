@@ -18,6 +18,7 @@ class MainViewController: UIViewController, MVVM_View {
     
     
 
+    @IBOutlet weak var consultProductView: DesignableView!
     @IBOutlet weak var scanButtonView: DesignableView!
     @IBOutlet weak var barCodeImage: UIImageView!
     
@@ -33,7 +34,19 @@ class MainViewController: UIViewController, MVVM_View {
       }
     
     func initView(){
-        
+         let consultGesture = UITapGestureRecognizer(target: self, action:  #selector (self.navigateConsult(_:)))
+         self.consultProductView.addGestureRecognizer(consultGesture)
+         let scanGesture = UITapGestureRecognizer(target: self, action:  #selector (self.navigateScan(_:)))
+         self.scanButtonView.addGestureRecognizer(scanGesture)
+    }
+    
+    
+    @objc func navigateConsult(_ sender:UITapGestureRecognizer){
+        self.performSegue(withIdentifier: "consultSegue", sender: self)
+    }
+    
+    @objc func navigateScan(_ sender:UITapGestureRecognizer){
+        self.performSegue(withIdentifier: "scanSegue", sender: self)
     }
     
 
