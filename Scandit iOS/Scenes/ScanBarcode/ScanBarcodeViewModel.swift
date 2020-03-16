@@ -7,7 +7,12 @@
 //
 
 import Foundation
+import Combine
 
 class ScanBarcodeViewModel: MVVM_ViewModel {
     
+    var codes = [String : Product]()
+    var numberOfProducts = [String : Int]()
+
+    @Published var scannedProduct : Product = Product()
 }

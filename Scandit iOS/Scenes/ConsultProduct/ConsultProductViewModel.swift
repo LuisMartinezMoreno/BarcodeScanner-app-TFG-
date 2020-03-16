@@ -10,4 +10,6 @@ import Foundation
 
 class ConsultProductViewModel : MVVM_ViewModel {
     
+    var codes = [String : Product]()
+    
 }

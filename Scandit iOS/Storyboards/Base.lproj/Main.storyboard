@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HkE-x2-cdi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5Q9-8F-yIw">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -15,9 +15,29 @@
                     <view key="view" contentMode="scaleToFill" id="9kf-Fi-cFt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2zg-zA-r0G">
+                                <rect key="frame" x="16" y="92" width="382" height="252"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_company" translatesAutoresizingMaskIntoConstraints="NO" id="kVm-tL-dv6">
+                                <rect key="frame" x="32" y="744" width="350" height="126"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="2zg-zA-r0G" firstAttribute="leading" secondItem="9TR-JI-bp2" secondAttribute="leading" constant="16" id="DFb-Bm-6Zw"/>
+                            <constraint firstItem="2zg-zA-r0G" firstAttribute="top" secondItem="9TR-JI-bp2" secondAttribute="top" constant="48" id="OEl-B6-6oL"/>
+                            <constraint firstItem="9TR-JI-bp2" firstAttribute="trailing" secondItem="kVm-tL-dv6" secondAttribute="trailing" constant="32" id="OQD-aG-1ZM"/>
+                            <constraint firstItem="kVm-tL-dv6" firstAttribute="leading" secondItem="9TR-JI-bp2" secondAttribute="leading" constant="32" id="ZEH-kU-K2G"/>
+                            <constraint firstItem="kVm-tL-dv6" firstAttribute="bottom" secondItem="9TR-JI-bp2" secondAttribute="bottom" constant="8" id="kyy-G0-xAY"/>
+                            <constraint firstItem="9TR-JI-bp2" firstAttribute="trailing" secondItem="2zg-zA-r0G" secondAttribute="trailing" constant="16" id="p3n-pb-Z5J"/>
+                            <constraint firstItem="kVm-tL-dv6" firstAttribute="top" secondItem="2zg-zA-r0G" secondAttribute="bottom" constant="400" id="rLY-cb-ArL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9TR-JI-bp2"/>
                     </view>
+                    <connections>
+                        <segue destination="HkE-x2-cdi" kind="presentation" identifier="initialSegue" modalPresentationStyle="fullScreen" id="QXM-gG-q36"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gjS-Lh-uNk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -27,7 +47,7 @@
         <scene sceneID="W8B-Kq-txn">
             <objects>
                 <navigationController id="HkE-x2-cdi" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RvQ-JR-otr">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RvQ-JR-otr" customClass="NavigationBarDesignable" customModule="Douglas" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -48,7 +68,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="252" image="iecisaLogo" translatesAutoresizingMaskIntoConstraints="NO" id="4VK-Uy-8tp">
-                                <rect key="frame" x="47" y="96" width="320" height="235.5"/>
+                                <rect key="frame" x="-113" y="96" width="640" height="235.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Escoge función" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nr1-Qb-o6q">
                                 <rect key="frame" x="107" y="379.5" width="132.5" height="23"/>
@@ -63,7 +83,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="96" height="75"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_barcode_scanner" translatesAutoresizingMaskIntoConstraints="NO" id="jZX-n7-ghp">
-                                                <rect key="frame" x="35" y="-61.5" width="26" height="150"/>
+                                                <rect key="frame" x="35" y="-136.5" width="26" height="300"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escanear Barcode" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeD-xF-1HN">
@@ -104,7 +124,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_stock_checker" translatesAutoresizingMaskIntoConstraints="NO" id="BbB-Ff-GgU">
-                                                <rect key="frame" x="35" y="-61.5" width="26" height="150"/>
+                                                <rect key="frame" x="35" y="-136.5" width="26" height="300"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" name="secundaryColor"/>
@@ -285,44 +305,17 @@
                                 <color key="textColor" name="primaryColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" verticalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="s99-17-OHO" customClass="DesignableView" customModule="Douglas" customModuleProvider="target">
+                            <view contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="s99-17-OHO" customClass="DesignableView" customModule="Douglas" customModuleProvider="target">
                                 <rect key="frame" x="16" y="179" width="378" height="252.5"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Luh-dk-kJY" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
-                                        <rect key="frame" x="24" y="238.5" width="141" height="28"/>
-                                        <color key="backgroundColor" name="secundaryColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="141" id="Mh7-LY-S2d"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
-                                        <state key="normal" title="Cámara frontal">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusOfButton">
-                                                <real key="value" value="10"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="color">
-                                                <color key="value" name="primaryColor"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="ancho">
-                                                <real key="value" value="2"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="width">
-                                                <real key="value" value="2"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Luh-dk-kJY" secondAttribute="bottom" constant="-14" id="B0f-dA-uoi"/>
-                                    <constraint firstItem="Luh-dk-kJY" firstAttribute="leading" secondItem="s99-17-OHO" secondAttribute="leading" constant="24" id="Inq-lE-nV7"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Luh-dk-kJY" secondAttribute="trailing" constant="20" symbolic="YES" id="RNn-mB-D7g"/>
-                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusOfView">
                                         <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="width">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" name="primaryColor"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -333,7 +326,7 @@
                                         <rect key="frame" x="8" y="6.5" width="20" height="20"/>
                                         <color key="tintColor" name="secundaryColor"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="No se han escaneado productos" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZ5-0F-W6r">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="No se han escaneado productos" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MZ5-0F-W6r">
                                         <rect key="frame" x="36" y="8" width="304" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
@@ -355,9 +348,6 @@
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusOfView">
                                         <real key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="ancho">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="color">
                                         <color key="value" name="primaryColor"/>
                                     </userDefinedRuntimeAttribute>
@@ -366,7 +356,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="748" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Cuc-sN-SFo">
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="747" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Cuc-sN-SFo">
                                 <rect key="frame" x="32" y="586" width="350" height="78.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2c-Cn-FQc" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
@@ -380,6 +370,9 @@
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="increment:" destination="0Bq-Rx-y6J" eventType="touchUpInside" id="cg5-Dd-kzX"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjc-rV-Qux" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
                                         <rect key="frame" x="119.5" y="0.0" width="111" height="78.5"/>
@@ -392,6 +385,9 @@
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="increment:" destination="0Bq-Rx-y6J" eventType="touchUpInside" id="vCb-qn-G4a"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRJ-Kb-mlc" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
                                         <rect key="frame" x="238.5" y="0.0" width="111.5" height="78.5"/>
@@ -404,10 +400,13 @@
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="increment:" destination="0Bq-Rx-y6J" eventType="touchUpInside" id="2yC-NP-J89"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="748" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ezb-gM-Pa1">
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="747" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ezb-gM-Pa1">
                                 <rect key="frame" x="32" y="672.5" width="350" height="78.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWI-xF-nra" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
@@ -421,6 +420,9 @@
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="increment:" destination="0Bq-Rx-y6J" eventType="touchUpInside" id="Z5D-UP-yTv"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jjm-tR-Pwh" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
                                         <rect key="frame" x="119.5" y="0.0" width="111" height="78.5"/>
@@ -433,6 +435,9 @@
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="increment:" destination="0Bq-Rx-y6J" eventType="touchUpInside" id="FFM-ia-FBB"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayp-pk-oVf" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
                                         <rect key="frame" x="238.5" y="0.0" width="111.5" height="78.5"/>
@@ -445,10 +450,13 @@
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="increment:" destination="0Bq-Rx-y6J" eventType="touchUpInside" id="HC1-nc-M73"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="748" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8mV-cJ-XLw">
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="747" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8mV-cJ-XLw">
                                 <rect key="frame" x="32" y="759" width="350" height="79"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Cfa-xq-z8S" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
@@ -470,6 +478,9 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="adjustText" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="cancelButton:" destination="0Bq-Rx-y6J" eventType="touchUpInside" id="plJ-wy-azB"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rx-pr-7w8" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
                                         <rect key="frame" x="119.5" y="0.0" width="111" height="79"/>
@@ -482,6 +493,9 @@
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="increment:" destination="0Bq-Rx-y6J" eventType="touchUpInside" id="KJo-RQ-EK5"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="l5S-qA-gY5" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
                                         <rect key="frame" x="238.5" y="0.0" width="111.5" height="79"/>
@@ -502,6 +516,9 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="adjustText" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="addButton:" destination="0Bq-Rx-y6J" eventType="touchUpInside" id="NHy-mV-Nu9"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -513,7 +530,7 @@
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="800" id="E2c-g3-7WV"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="748" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="chd-xf-k8L">
+                            <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="747" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="chd-xf-k8L">
                                 <rect key="frame" x="32" y="499.5" width="350" height="78.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTd-iY-C8P" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
@@ -527,6 +544,9 @@
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="increment:" destination="0Bq-Rx-y6J" eventType="touchUpInside" id="c8A-a6-V1s"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yam-2K-Lvm" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
                                         <rect key="frame" x="119.5" y="0.0" width="111" height="78.5"/>
@@ -539,6 +559,9 @@
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="increment:" destination="0Bq-Rx-y6J" eventType="touchUpInside" id="s0I-Xi-Zv9"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qi7-vY-pnZ" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
                                         <rect key="frame" x="238.5" y="0.0" width="111.5" height="78.5"/>
@@ -551,10 +574,13 @@
                                                 <real key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="increment:" destination="0Bq-Rx-y6J" eventType="touchUpInside" id="jWi-Ym-FkC"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" text="Introduce una cantidad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amK-mZ-9ND" customClass="DesignableLabel" customModule="Douglas" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="747" text="Introduce una cantidad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amK-mZ-9ND" customClass="DesignableLabel" customModule="Douglas" customModuleProvider="target">
                                 <rect key="frame" x="93.5" y="447.5" width="223" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="eU9-68-dzv"/>
@@ -574,11 +600,32 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Luh-dk-kJY" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
+                                <rect key="frame" x="32" y="415.5" width="141" height="28"/>
+                                <color key="backgroundColor" name="secundaryColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="141" id="Mh7-LY-S2d"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                <state key="normal" title="Cámara frontal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusOfButton">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                        <color key="value" name="primaryColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="width">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="ezb-gM-Pa1" firstAttribute="top" secondItem="Cuc-sN-SFo" secondAttribute="bottom" constant="8" id="2qR-sD-Ws2"/>
-                            <constraint firstItem="s99-17-OHO" firstAttribute="height" relation="lessThanOrEqual" secondItem="dw4-Ki-yKi" secondAttribute="height" multiplier="0.426339" id="8Ci-Lf-yEN"/>
                             <constraint firstItem="8mV-cJ-XLw" firstAttribute="top" secondItem="ezb-gM-Pa1" secondAttribute="bottom" constant="8" id="8yG-2f-wGk"/>
                             <constraint firstItem="v5l-oH-N4d" firstAttribute="trailing" secondItem="8me-fo-6g5" secondAttribute="trailing" constant="16" id="9ud-2V-Dk3"/>
                             <constraint firstItem="Cuc-sN-SFo" firstAttribute="top" secondItem="chd-xf-k8L" secondAttribute="bottom" constant="8" id="A9R-Xe-yd2"/>
@@ -597,6 +644,7 @@
                             <constraint firstItem="s99-17-OHO" firstAttribute="leading" secondItem="MYR-2a-aGj" secondAttribute="leading" id="YEv-x3-BYs"/>
                             <constraint firstItem="LIv-tK-lGi" firstAttribute="top" secondItem="MYR-2a-aGj" secondAttribute="bottom" constant="8" id="a0T-5V-WMs"/>
                             <constraint firstItem="Cuc-sN-SFo" firstAttribute="leading" secondItem="chd-xf-k8L" secondAttribute="leading" id="amG-1a-ra5"/>
+                            <constraint firstItem="Luh-dk-kJY" firstAttribute="leading" secondItem="v5l-oH-N4d" secondAttribute="leading" constant="32" id="coN-hB-2qD"/>
                             <constraint firstItem="chd-xf-k8L" firstAttribute="top" secondItem="amK-mZ-9ND" secondAttribute="bottom" constant="12" id="dYk-A9-dzi"/>
                             <constraint firstItem="MYR-2a-aGj" firstAttribute="top" secondItem="3qj-fZ-WAH" secondAttribute="bottom" constant="20" id="dxq-GW-I6b"/>
                             <constraint firstItem="Ulu-JA-iHK" firstAttribute="leading" secondItem="MYR-2a-aGj" secondAttribute="trailing" constant="8" id="hDz-xM-NhR"/>
@@ -611,6 +659,7 @@
                             <constraint firstItem="ezb-gM-Pa1" firstAttribute="trailing" secondItem="chd-xf-k8L" secondAttribute="trailing" id="qcb-Na-y7f"/>
                             <constraint firstItem="amK-mZ-9ND" firstAttribute="top" secondItem="s99-17-OHO" secondAttribute="bottom" constant="16" id="tNq-gf-NUr"/>
                             <constraint firstItem="3qj-fZ-WAH" firstAttribute="top" secondItem="v5l-oH-N4d" secondAttribute="top" constant="16" id="teg-9A-UaS"/>
+                            <constraint firstItem="chd-xf-k8L" firstAttribute="top" secondItem="Luh-dk-kJY" secondAttribute="bottom" constant="56" id="uLs-6E-Ncf"/>
                             <constraint firstItem="Ulu-JA-iHK" firstAttribute="trailing" secondItem="dw4-Ki-yKi" secondAttribute="trailingMargin" constant="8" id="uME-Hn-FXK"/>
                             <constraint firstItem="chd-xf-k8L" firstAttribute="height" secondItem="8mV-cJ-XLw" secondAttribute="height" multiplier="0.989691" id="vI8-Q5-gjh"/>
                             <constraint firstItem="v5l-oH-N4d" firstAttribute="bottom" secondItem="8mV-cJ-XLw" secondAttribute="bottom" constant="24" id="xjN-uR-Cb2"/>
@@ -619,6 +668,11 @@
                         <viewLayoutGuide key="safeArea" id="v5l-oH-N4d"/>
                     </view>
                     <navigationItem key="navigationItem" id="zbp-TI-n9X"/>
+                    <connections>
+                        <outlet property="productLabel" destination="MZ5-0F-W6r" id="j7q-Oe-JXz"/>
+                        <outlet property="quantityLabel" destination="amK-mZ-9ND" id="Gaf-ZL-SbZ"/>
+                        <outlet property="scanView" destination="s99-17-OHO" id="dPB-1c-IDH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="thy-J0-E8i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -663,28 +717,15 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8S6-gx-pYn" customClass="DesignableView" customModule="Douglas" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="361"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanning by Scandit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oMI-E8-i25">
-                                                <rect key="frame" x="270.5" y="338.5" width="115.5" height="14.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="oMI-E8-i25" secondAttribute="trailing" constant="8" id="AI3-vT-R1f"/>
-                                            <constraint firstAttribute="bottom" secondItem="oMI-E8-i25" secondAttribute="bottom" constant="8" id="T2T-PU-w2C"/>
-                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusOfView">
                                                 <real key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="ancho">
-                                                <real key="value" value="2"/>
-                                            </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="color">
                                                 <color key="value" name="primaryColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="width">
+                                                <real key="value" value="2"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -712,9 +753,6 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="color">
                                         <color key="value" name="primaryColor"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="ancho">
-                                        <real key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
@@ -741,6 +779,9 @@
                         <viewLayoutGuide key="safeArea" id="w6F-wy-Rfv"/>
                     </view>
                     <navigationItem key="navigationItem" id="mZO-VJ-04z"/>
+                    <connections>
+                        <outlet property="scannerView" destination="8S6-gx-pYn" id="NgP-Qq-ip9"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AxC-SK-c7U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

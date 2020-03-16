@@ -1,20 +1,41 @@
 PODS:
+  - Alamofire (4.9.1)
+  - ObjectMapper (3.5.2)
+  - RxCombine (1.3.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.1)
   - ScanditBarcodeCapture (6.1.2):
     - ScanditCaptureCore (= 6.1.2)
   - ScanditCaptureCore (6.1.2)
 
 DEPENDENCIES:
+  - Alamofire
+  - ObjectMapper
+  - RxCombine
   - ScanditBarcodeCapture
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - ObjectMapper
+    - RxCombine
+    - RxRelay
+    - RxSwift
     - ScanditBarcodeCapture
     - ScanditCaptureCore
 
 SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  ObjectMapper: b53ae947d370bf89423e86be7d4e2d2b2a8d3f40
+  RxCombine: 00d8501dccd7c87b51e8aef1c0560d35722303d0
+  RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
+  RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
   ScanditBarcodeCapture: 559b727fa9b40042769be4b6e2892e44b3d27df3
   ScanditCaptureCore: 552c9929fd13c5296d584348d452fc26ed98ff97
 
-PODFILE CHECKSUM: a424e42c3fb773afff33c989df0968247ac4143e
+PODFILE CHECKSUM: 5c4eef1d4ea20843b7e6b0310285bf0da1dc3c4b
 
 COCOAPODS: 1.8.4

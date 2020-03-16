@@ -10,4 +10,18 @@ import Foundation
 
 class MainViewModel : MVVM_ViewModel {
     
+    var products = [Product]()
+    var codes = [String : Product]()
+    var numberOfProducts = [String: Int]()
+    
+    fileprivate let repository = DouglasRepository()
+    
+    func readProducts(){
+        repository.readProducts(){
+            result in self.products = result
+            for product in self.products {
+                self.codes.updateValue(product, forKey: product.ean!)
+            }
+        }
+    }
 }

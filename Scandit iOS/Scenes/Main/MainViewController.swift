@@ -28,9 +28,10 @@ class MainViewController: UIViewController, MVVM_View {
         super.viewDidLoad()
         self.bindViewModel()
         self.initView()
+        viewModel.readProducts()
     }
     func bindViewModel() {
-          
+          viewModel = MainViewModel()
       }
     
     func initView(){
@@ -47,6 +48,14 @@ class MainViewController: UIViewController, MVVM_View {
     
     @objc func navigateScan(_ sender:UITapGestureRecognizer){
         self.performSegue(withIdentifier: "scanSegue", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.destination is ScanBarcodeViewController){
+            let destinationVC = segue.destination as? ScanBarcodeViewController
+            destinationVC?.codes = self.viewModel.codes
+            destinationVC?.numberOfProducts = self.viewModel.numberOfProducts
+        }
     }
     
 
