@@ -12,7 +12,6 @@ class MainViewModel : MVVM_ViewModel {
     
     var products = [Product]()
     var codes = [String : Product]()
-    var numberOfProducts = [String: Int]()
     
     fileprivate let repository = DouglasRepository()
     

@@ -54,7 +54,6 @@ class MainViewController: UIViewController, MVVM_View {
         if(segue.destination is ScanBarcodeViewController){
             let destinationVC = segue.destination as? ScanBarcodeViewController
             destinationVC?.codes = self.viewModel.codes
-            destinationVC?.numberOfProducts = self.viewModel.numberOfProducts
         }
     }
     

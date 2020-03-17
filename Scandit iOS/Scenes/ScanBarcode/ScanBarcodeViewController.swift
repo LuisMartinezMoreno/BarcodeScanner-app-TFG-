@@ -10,7 +10,7 @@ import UIKit
 import ScanditBarcodeCapture
 import Combine
 
-class ScanBarcodeViewController: UIViewController, MVVM_View, BarcodeCaptureListener{
+class ScanBarcodeViewController: UIViewController, MVVM_View, BarcodeCaptureListener, UIGestureRecognizerDelegate, UITableViewDataSource{
     
     // MARK: Atrributes
     typealias ViewModel = ScanBarcodeViewModel
@@ -26,9 +26,11 @@ class ScanBarcodeViewController: UIViewController, MVVM_View, BarcodeCaptureList
     private let feedback = Feedback.default
     @IBOutlet weak var scanView: DesignableView!
     @IBOutlet weak var productLabel: UILabel!
+    @IBOutlet weak var productsTableView: UITableView!
+    @IBOutlet weak var bottomSheet: DesignableView!
+    @IBOutlet weak var numberOfScans: DesignableLabel!
     
     var codes = [String : Product]()
-    var numberOfProducts = [String : Int]()
     var productScanned : Bool = false
     
     private var cancellableBag = Set<AnyCancellable>()
@@ -41,6 +43,7 @@ class ScanBarcodeViewController: UIViewController, MVVM_View, BarcodeCaptureList
         self.bindViewModel()
         self.observeForErrors()
         initScan()
+        initBottomSheet()
         // Do any additional setup after loading the view.
     }
     
@@ -64,7 +67,6 @@ class ScanBarcodeViewController: UIViewController, MVVM_View, BarcodeCaptureList
     func bindViewModel() {
         viewModel = ScanBarcodeViewModel()
         self.viewModel.codes = self.codes
-        self.viewModel.numberOfProducts = self.numberOfProducts
         self.viewModel.$scannedProduct.receive(on: DispatchQueue.main).sink{
             result in
             guard let description = result.description, let ean = result.ean else {return}
@@ -124,7 +126,8 @@ class ScanBarcodeViewController: UIViewController, MVVM_View, BarcodeCaptureList
         }
     }
     
-    //MARK: Buttons action
+    //MARK: Buttons actions
+    
     @IBAction func increment(_ sender: UIButton) {
         guard let labelText = quantityLabel.text else {return}
         guard let buttonText = sender.titleLabel?.text else {return}
@@ -151,7 +154,51 @@ class ScanBarcodeViewController: UIViewController, MVVM_View, BarcodeCaptureList
             self.viewModel.setError(CustomErrors.noQuantity)
             return
         }
-        self.numberOfProducts.updateValue(Int(labelText)!, forKey: self.viewModel.scannedProduct.ean!)
+        self.viewModel.numberOfProducts.updateValue(Int(labelText)!, forKey: self.viewModel.scannedProduct.ean!)
+        self.numberOfScans.isHidden = false
+        productsTableView.reloadData()
+        
     }
     
+    //MARK: Bottom Sheet
+    
+     func initBottomSheet(){
+        let gesture = UIPanGestureRecognizer(target: self, action: #selector(self.wasDragged))
+        numberOfScans.addGestureRecognizer(gesture)
+        numberOfScans.isUserInteractionEnabled = true
+        gesture.delegate = self
+        productsTableView.dataSource = self
+    }
+    
+    @objc func wasDragged(gestureRecognizer: UIPanGestureRecognizer) {
+        if(gestureRecognizer.translation(in: self.view).y < 0){ // DRAG UP
+        UIView.animate(withDuration: 1.0, animations: {
+            self.bottomSheet.frame = CGRect(x: self.bottomSheet.frame.origin.x, y: self.quantityLabel.frame.origin.y, width: self.bottomSheet.frame.size.width, height: self.bottomSheet.frame.size.height)
+        })
+
+        UILabel.animate(withDuration: 1.0, animations: {
+            self.numberOfScans.frame = CGRect(x: self.numberOfScans.frame.origin.x, y: self.quantityLabel.frame.origin.y, width: self.numberOfScans.frame.size.width, height: self.numberOfScans.frame.size.height)
+        })
+      }
+        else if(gestureRecognizer.translation(in: self.view).y > 0){ //DRAG DOWN
+            UIView.animate(withDuration: 1.0, animations: {
+                self.bottomSheet.frame = CGRect(x: self.bottomSheet.frame.origin.x, y: self.view.frame.size.height-16, width: self.bottomSheet.frame.size.width, height: self.bottomSheet.frame.size.height)
+                   })
+            UILabel.animate(withDuration: 1.0, animations: {
+                self.numberOfScans.frame = CGRect(x: self.numberOfScans.frame.origin.x, y: self.view.frame.size.height-48, width: self.numberOfScans.frame.size.width, height: self.numberOfScans.frame.size.height)
+              })
+            }
+        }
+    
+    // MARK: - Table view data source
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.viewModel.numberOfProducts.count
+     }
+     
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath) as UITableViewCell
+        return cell
+     }
+     
 }
