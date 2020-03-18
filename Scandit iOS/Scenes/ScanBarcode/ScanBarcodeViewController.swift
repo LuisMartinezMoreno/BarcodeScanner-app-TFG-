@@ -24,11 +24,13 @@ class ScanBarcodeViewController: UIViewController, MVVM_View, BarcodeCaptureList
     private var captureView: DataCaptureView!
     private var overlay: BarcodeCaptureOverlay!
     private let feedback = Feedback.default
+    
     @IBOutlet weak var scanView: DesignableView!
     @IBOutlet weak var productLabel: UILabel!
     @IBOutlet weak var productsTableView: UITableView!
     @IBOutlet weak var bottomSheet: DesignableView!
     @IBOutlet weak var numberOfScans: DesignableLabel!
+    @IBOutlet weak var changeCamera: DesignableButton!
     
     var codes = [String : Product]()
     var productScanned : Bool = false
@@ -42,13 +44,13 @@ class ScanBarcodeViewController: UIViewController, MVVM_View, BarcodeCaptureList
         super.viewDidLoad()
         self.bindViewModel()
         self.observeForErrors()
-        initScan()
         initBottomSheet()
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        initScan(camera: Camera.default!)
         
         //Allow codebar capture
         barcodeCapture.isEnabled = true
@@ -57,12 +59,18 @@ class ScanBarcodeViewController: UIViewController, MVVM_View, BarcodeCaptureList
         camera?.switch(toDesiredState: .on)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        productsTableView.rowHeight = 50
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
         //Switch off the camera and the codebar capture
         barcodeCapture.isEnabled = false
         camera?.switch(toDesiredState: .off)
+        context.removeAllModes()
     }
     func bindViewModel() {
         viewModel = ScanBarcodeViewModel()
@@ -77,15 +85,14 @@ class ScanBarcodeViewController: UIViewController, MVVM_View, BarcodeCaptureList
     
     //MARK: Scanner functions
     
-    private func initScan(){
+    private func initScan(camera: Camera){
         
         context = DataCaptureContext.licensed
-        camera = Camera.default
+        self.camera = camera
         context.setFrameSource(camera, completionHandler: nil)
-        
         let recommendedCameraSettings = BarcodeCapture.recommendedCameraSettings
         recommendedCameraSettings.preferredResolution = .fullHD
-        camera?.apply(recommendedCameraSettings)
+        self.camera?.apply(recommendedCameraSettings)
         let settings = BarcodeCaptureSettings()
         settings.set(symbology: .ean13UPCA, enabled: true)
         settings.set(symbology: .ean8, enabled: true)
@@ -102,6 +109,8 @@ class ScanBarcodeViewController: UIViewController, MVVM_View, BarcodeCaptureList
         captureView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         scanView.addSubview(captureView)
         
+        barcodeCapture.isEnabled = true
+        self.camera?.switch(toDesiredState: .on)
         //Optional
         overlay = BarcodeCaptureOverlay(barcodeCapture: barcodeCapture)
         captureView.addOverlay(overlay)
@@ -139,11 +148,7 @@ class ScanBarcodeViewController: UIViewController, MVVM_View, BarcodeCaptureList
     }
     
     @IBAction func cancelButton(_ sender: Any) {
-        quantityLabel.text! = "Introduce una cantidad"
-        barcodeCapture.isEnabled = true
-        camera?.switch(toDesiredState: .on)
-        productLabel.text = "No se han escaneado productos"
-        productScanned = false
+        resetScreen()
     }
     @IBAction func addButton(_ sender: Any) {
         guard let labelText = quantityLabel.text else {return}
@@ -155,9 +160,31 @@ class ScanBarcodeViewController: UIViewController, MVVM_View, BarcodeCaptureList
             return
         }
         self.viewModel.numberOfProducts.updateValue(Int(labelText)!, forKey: self.viewModel.scannedProduct.ean!)
+        self.numberOfScans.text = String(self.viewModel.numberOfProducts.count)
         self.numberOfScans.isHidden = false
         productsTableView.reloadData()
-        
+        resetScreen()
+    }
+    
+    private func resetScreen(){
+        barcodeCapture.isEnabled = true
+        camera?.switch(toDesiredState: .on)
+        quantityLabel.text! = "Introduce una cantidad"
+        productLabel.text = "No se han escaneado productos"
+        productScanned = false
+    }
+    @IBAction func changeCamera(_ sender: Any) {
+        context.removeAllModes()
+        barcodeCapture.isEnabled = false
+        camera?.switch(toDesiredState: .off)
+        if(camera?.position == .worldFacing){
+            let cam = Camera(position: .userFacing)!
+            cam.switch(toDesiredState: .on)
+            initScan(camera: cam)
+        }
+        else{
+            initScan(camera: Camera.default!)
+        }
     }
     
     //MARK: Bottom Sheet
@@ -177,12 +204,12 @@ class ScanBarcodeViewController: UIViewController, MVVM_View, BarcodeCaptureList
         })
 
         UILabel.animate(withDuration: 1.0, animations: {
-            self.numberOfScans.frame = CGRect(x: self.numberOfScans.frame.origin.x, y: self.quantityLabel.frame.origin.y, width: self.numberOfScans.frame.size.width, height: self.numberOfScans.frame.size.height)
+            self.numberOfScans.frame = CGRect(x: self.numberOfScans.frame.origin.x, y: self.quantityLabel.frame.origin.y-24, width: self.numberOfScans.frame.size.width, height: self.numberOfScans.frame.size.height)
         })
       }
         else if(gestureRecognizer.translation(in: self.view).y > 0){ //DRAG DOWN
             UIView.animate(withDuration: 1.0, animations: {
-                self.bottomSheet.frame = CGRect(x: self.bottomSheet.frame.origin.x, y: self.view.frame.size.height-16, width: self.bottomSheet.frame.size.width, height: self.bottomSheet.frame.size.height)
+                self.bottomSheet.frame = CGRect(x: self.bottomSheet.frame.origin.x, y: self.view.frame.size.height, width: self.bottomSheet.frame.size.width, height: self.bottomSheet.frame.size.height)
                    })
             UILabel.animate(withDuration: 1.0, animations: {
                 self.numberOfScans.frame = CGRect(x: self.numberOfScans.frame.origin.x, y: self.view.frame.size.height-48, width: self.numberOfScans.frame.size.width, height: self.numberOfScans.frame.size.height)
@@ -197,7 +224,14 @@ class ScanBarcodeViewController: UIViewController, MVVM_View, BarcodeCaptureList
      }
      
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath) as UITableViewCell
+        let keys = Array(self.viewModel.numberOfProducts)
+        let (code,number) = keys[indexPath.row]
+        let product = self.viewModel.codes[code]
+        let cell : ProductTableViewCell = tableView.dequeueReusableCell(withIdentifier: "productCell", for: indexPath) as! ProductTableViewCell
+        cell.productCodeLabel.text = code
+        cell.productNameLabel.text = product?.description
+        cell.quantityLabel.text = String(number)
+        cell.stepper.value = Double(number)
         return cell
      }
      

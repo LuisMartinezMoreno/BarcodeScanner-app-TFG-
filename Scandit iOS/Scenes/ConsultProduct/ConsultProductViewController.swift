@@ -48,6 +48,7 @@ class ConsultProductViewController: UIViewController, MVVM_View {
     }
     
     private func initRecognition() {
+        
         context = DataCaptureContext.licensed
         
         camera = Camera.default
@@ -73,6 +74,8 @@ class ConsultProductViewController: UIViewController, MVVM_View {
         scannerView.addSubview(captureView)
         scannerView.sendSubviewToBack(captureView)
         
+        barcodeTracking.isEnabled = true
+        camera?.switch(toDesiredState: .on)
         //Optional
         overlay = BarcodeTrackingBasicOverlay(barcodeTracking: barcodeTracking, view: captureView)
 

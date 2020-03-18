@@ -48,6 +48,8 @@
 		8C1C25F6241F695800DA5883 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1C25F5241F695800DA5883 /* Repository.swift */; };
 		8C1C25F8241F8B2A00DA5883 /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1C25F7241F8B2A00DA5883 /* CustomErrors.swift */; };
 		8C1C25F9241F8B2A00DA5883 /* CustomErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1C25F7241F8B2A00DA5883 /* CustomErrors.swift */; };
+		8C1D78E22422038F00418B21 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D78E12422038F00418B21 /* ProductTableViewCell.swift */; };
+		8C1D78E32422038F00418B21 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C1D78E12422038F00418B21 /* ProductTableViewCell.swift */; };
 		8CAB548F241B69C3007A35A7 /* NavigationBarDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB548E241B69C3007A35A7 /* NavigationBarDesignable.swift */; };
 		8CAB5490241B69C3007A35A7 /* NavigationBarDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB548E241B69C3007A35A7 /* NavigationBarDesignable.swift */; };
 		8CAB5493241B6B1F007A35A7 /* ScanditLicense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB5492241B6B1F007A35A7 /* ScanditLicense.swift */; };
@@ -84,7 +86,6 @@
 		3D83A7A8241657EC00B45865 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		3D8E6D0C24111EAF00371B6A /* DesignableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableButton.swift; sourceTree = "<group>"; };
 		3D9C733424177EDF00E1A220 /* Douglas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Douglas.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		3D9C733524177EDF00E1A220 /* Scandit iOS copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Scandit iOS copy-Info.plist"; path = "/Users/a67883058/Desktop/IECISA PRACTICAS/Scandit iOS/Scandit iOS copy-Info.plist"; sourceTree = "<absolute>"; };
 		3D9C7338241781BB00E1A220 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3DB6D806240FBEF600C08B4A /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
 		3DB6D810240FCA5B00C08B4A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +93,7 @@
 		8A154E5943374EBF6D133A42 /* Pods-Douglas.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Douglas.debug.xcconfig"; path = "Target Support Files/Pods-Douglas/Pods-Douglas.debug.xcconfig"; sourceTree = "<group>"; };
 		8C1C25F5241F695800DA5883 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		8C1C25F7241F8B2A00DA5883 /* CustomErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomErrors.swift; sourceTree = "<group>"; };
+		8C1D78E12422038F00418B21 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
 		8CAB548E241B69C3007A35A7 /* NavigationBarDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarDesignable.swift; sourceTree = "<group>"; };
 		8CAB5492241B6B1F007A35A7 /* ScanditLicense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanditLicense.swift; sourceTree = "<group>"; };
 		8CAB549B241B8BEF007A35A7 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -130,7 +132,6 @@
 			children = (
 				3D3E2BCD240FA551008053D1 /* Scandit iOS */,
 				3D3E2BCC240FA551008053D1 /* Products */,
-				3D9C733524177EDF00E1A220 /* Scandit iOS copy-Info.plist */,
 				BFA174BF26B419FCE453C0C4 /* Pods */,
 				85309D12C26F7336E955431E /* Frameworks */,
 			);
@@ -198,6 +199,7 @@
 			children = (
 				3D83A79D2416550A00B45865 /* ScanBarcodeViewModel.swift */,
 				3D83A79F2416552B00B45865 /* ScanBarcodeViewController.swift */,
+				8C1D78E12422038F00418B21 /* ProductTableViewCell.swift */,
 			);
 			path = ScanBarcode;
 			sourceTree = "<group>";
@@ -497,6 +499,7 @@
 			files = (
 				3D83A79E2416550A00B45865 /* ScanBarcodeViewModel.swift in Sources */,
 				8C1C25F8241F8B2A00DA5883 /* CustomErrors.swift in Sources */,
+				8C1D78E22422038F00418B21 /* ProductTableViewCell.swift in Sources */,
 				3D83A7992416537200B45865 /* MVVM_ViewModel.swift in Sources */,
 				3DB6D807240FBEF600C08B4A /* DesignableView.swift in Sources */,
 				3D83A7A9241657EC00B45865 /* SplashViewController.swift in Sources */,
@@ -529,6 +532,7 @@
 				3D9C732024177EDF00E1A220 /* SplashViewController.swift in Sources */,
 				8CAB54AB241BA4A4007A35A7 /* DouglasRepository.swift in Sources */,
 				3D9C732124177EDF00E1A220 /* ConsultProductViewModel.swift in Sources */,
+				8C1D78E32422038F00418B21 /* ProductTableViewCell.swift in Sources */,
 				8C1C25F9241F8B2A00DA5883 /* CustomErrors.swift in Sources */,
 				8CAB54A7241B94D1007A35A7 /* JSONDecoder.swift in Sources */,
 				8CAB549D241B8BEF007A35A7 /* Product.swift in Sources */,
@@ -739,7 +743,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EAY7PTQJV4;
-				INFOPLIST_FILE = "Scandit iOS copy-Info.plist";
+				INFOPLIST_FILE = "Scandit iOS/Commons/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -758,7 +762,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EAY7PTQJV4;
-				INFOPLIST_FILE = "Scandit iOS copy-Info.plist";
+				INFOPLIST_FILE = "Scandit iOS/Commons/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
