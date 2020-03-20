@@ -9,7 +9,8 @@
 import UIKit
 import ScanditBarcodeCapture
 
-class ConsultProductViewController: UIViewController, MVVM_View {
+class ConsultProductViewController: UIViewController, MVVM_View, UITableViewDataSource {
+    
     
     // MARK: Atributtes
     
@@ -22,9 +23,12 @@ class ConsultProductViewController: UIViewController, MVVM_View {
     private var barcodeTracking: BarcodeTracking!
     private var captureView: DataCaptureView!
     private var overlay: BarcodeTrackingBasicOverlay!
-
+    
     private var results: [String: Barcode] = [:]
+    
     @IBOutlet weak var scannerView: DesignableView!
+    @IBOutlet weak var productsTableView: UITableView!
+    @IBOutlet weak var pauseButton: DesignableButton!
     
     
     
@@ -33,7 +37,8 @@ class ConsultProductViewController: UIViewController, MVVM_View {
     override func viewDidLoad() {
         super.viewDidLoad()
         bindViewModel()
-        initRecognition()
+        registerTableViewCells()
+        //productsTableView.register(UINib.init(nibName: "StockTableViewCell", bundle: Bundle.init(identifier: "com.iecisa.Scandit-iOS")), forCellReuseIdentifier: "outStockCell")
         // Do any additional setup after loading the view.
     }
     
@@ -41,10 +46,31 @@ class ConsultProductViewController: UIViewController, MVVM_View {
         super.viewWillAppear(animated)
         // Remove results when the tracking starts
         results.removeAll()
+        productsTableView.rowHeight = 200
+        productsTableView.dataSource = self
+        initRecognition()
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        barcodeTracking.isEnabled = false
+        camera?.switch(toDesiredState: .off)
+        context.removeAllModes()
     }
     
     func bindViewModel() {
         viewModel = ConsultProductViewModel()
+        self.viewModel.readProducts()
+    }
+    
+    func registerTableViewCells(){
+        let stockCell = UINib(nibName: "StockTableViewCell", bundle: nil)
+        self.productsTableView.register(stockCell, forCellReuseIdentifier: "stockCell")
+        let correctCell = UINib(nibName: "CorrectTableViewCell", bundle: nil)
+        self.productsTableView.register(correctCell, forCellReuseIdentifier: "correctCell")
+        let promotionCell = UINib(nibName: "PromotionTableViewCell", bundle: nil)
+        self.productsTableView.register(promotionCell, forCellReuseIdentifier: "promotionCell")
     }
     
     private func initRecognition() {
@@ -78,14 +104,32 @@ class ConsultProductViewController: UIViewController, MVVM_View {
         camera?.switch(toDesiredState: .on)
         //Optional
         overlay = BarcodeTrackingBasicOverlay(barcodeTracking: barcodeTracking, view: captureView)
-
+        
     }
+    
+    //MARK: Button function
+    
+    @IBAction func pauseScan(_ sender: Any) {
+        if(camera?.currentState == FrameSourceState.off){
+            barcodeTracking.isEnabled = true
+            camera?.switch(toDesiredState: .on)
+            results.removeAll()
+            pauseButton.titleLabel?.text = "Pausar scan"
+        }
+        else{
+            barcodeTracking.isEnabled = false
+            camera?.switch(toDesiredState: .off)
+            pauseButton.titleLabel?.text = "Reiniciar scan"
+        }
+        productsTableView.reloadData()
+    }
+    
     
     
 }
 
 extension ConsultProductViewController: BarcodeTrackingListener {
-     // This function is called whenever objects are updated and it's the right place to react to the tracking results.
+    // This function is called whenever objects are updated and it's the right place to react to the tracking results.
     func barcodeTracking(_ barcodeTracking: BarcodeTracking,
                          didUpdate session: BarcodeTrackingSession,
                          frameData: FrameData) {
@@ -95,6 +139,79 @@ extension ConsultProductViewController: BarcodeTrackingListener {
                     self.results[data] = $0
                 }
             }
+        }
+    }
+    
+    // MARK: - Table view data source
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.results.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let productCode = Array(results.keys)[indexPath.row]
+        let product = self.viewModel.codes[productCode]
+        guard let season = product!.season, let pStock = product!.quantity, let offer = product!.discountPrice else {return UITableViewCell()}
+        guard let discountPrice = product?.discountPrice else {return UITableViewCell()}
+        guard let size = product!.size, let sizeFormat = product!.sizeformat else {return UITableViewCell()}
+        guard let price = product!.price else {return UITableViewCell()}
+        let dprice = price.replacingOccurrences(of: ",", with: ".")
+        guard let finalprice = Double(dprice) else {return UITableViewCell()}
+        let newprice = Int((Double(offer) / finalprice)*100)
+        
+        
+        let stock = product!.verifyStock()
+        if(product?.discountPrice != 0){      /* PROMOTION PRODUCT CELL */
+            let cell : PromotionTableViewCell = tableView.dequeueReusableCell(withIdentifier: "promotionCell", for: indexPath) as! PromotionTableViewCell
+            guard let start = product?.dateStartPromo else {return UITableViewCell()}
+            let date = Date(milliseconds: start)
+            let dateFormatterStart = DateFormatter()
+            dateFormatterStart.dateFormat = "dd/MM/yyyy"
+            guard let end = product?.dateEndPromo else {return UITableViewCell()}
+            let dateEnd = Date(milliseconds: end)
+            let endDateFormatter = DateFormatter()
+            endDateFormatter.dateFormat = "dd/MM/yyyy"
+            cell.productNameLabel.text = product!.description
+            cell.product = product!
+            cell.priceLabel.text = " " + "\(product!.price!)" + " € "
+            cell.newPriceLabel.text = " NEW \(discountPrice) € "
+            cell.sizeLabel.text = "\(size)" + " " + "\(sizeFormat)"
+            cell.seasonNumberLabel.text = "\(season)"
+            cell.numberStock.text = "\(pStock)"
+            cell.offerLabel.text = "\(newprice)" + " %"
+            cell.promotionLabel.text = "Desde \(dateFormatterStart.string(from: date)) hasta \(endDateFormatter.string(from: dateEnd))"
+            return cell
+        }
+        else if(stock == .NeedStock || stock == .LowStock){      /* LOW STOCK CELL */
+            
+            let cell : StockTableViewCell = tableView.dequeueReusableCell(withIdentifier: "stockCell", for: indexPath) as! StockTableViewCell
+            cell.product = product!
+            cell.productNameLabel.text = product!.description
+            cell.priceLabel.text = " " + "\(product!.price!)" + " € "
+            cell.sizeLabel.text = "\(size)" + " " + "\(sizeFormat)"
+            cell.seasonNumberLabel.text = "\(season)"
+            cell.numberStock.text = "\(pStock)"
+            cell.offerLabel.text = "\(newprice)" + " %"
+            cell.stateLabel.text = stock.description
+            if(stock == .NeedStock){
+                cell.stateLabel.textColor = UIColor.orange
+            }
+            else{
+                cell.stateLabel.textColor = UIColor.green
+            }
+            return cell
+        }
+        else{      /* CORRECT STATE CELL */
+            let cell : CorrectTableViewCell = tableView.dequeueReusableCell(withIdentifier: "correctCell", for: indexPath) as! CorrectTableViewCell
+            cell.productNameLabel.text = product!.description
+            cell.product = product!
+            cell.priceLabel.text = " " + "\(product!.price!)" + " € "
+            cell.sizeLabel.text = "\(size)" + " " + "\(sizeFormat)"
+            cell.seasonNumberLabel.text = "\(season)"
+            cell.numberStock.text = "\(pStock)"
+            cell.offerLabel.text = "\(newprice)" + " %"
+            return cell
         }
     }
 }

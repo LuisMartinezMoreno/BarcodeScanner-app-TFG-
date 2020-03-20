@@ -266,6 +266,7 @@
                     <connections>
                         <outlet property="barCodeImage" destination="jZX-n7-ghp" id="gbr-gM-5XP"/>
                         <outlet property="consultProductView" destination="BAF-hc-iBV" id="4EJ-Lc-10U"/>
+                        <outlet property="iecisaImage" destination="4VK-Uy-8tp" id="UdH-OD-kYZ"/>
                         <outlet property="scanButtonView" destination="ThO-cV-vcQ" id="rG7-ur-EbK"/>
                         <segue destination="mfO-5i-YKI" kind="show" identifier="consultSegue" id="qX4-F8-pkW"/>
                         <segue destination="0Bq-Rx-y6J" kind="show" identifier="scanSegue" id="E1S-ml-zdu"/>
@@ -788,6 +789,7 @@
                     <connections>
                         <outlet property="bottomSheet" destination="It3-PL-sEO" id="jRv-Q3-vfS"/>
                         <outlet property="changeCamera" destination="Luh-dk-kJY" id="scO-d4-VGN"/>
+                        <outlet property="changeCameraButton" destination="Luh-dk-kJY" id="WJd-P0-lLs"/>
                         <outlet property="numberOfScans" destination="a1y-qd-HaD" id="asJ-ia-m8l"/>
                         <outlet property="productLabel" destination="MZ5-0F-W6r" id="j7q-Oe-JXz"/>
                         <outlet property="productsTableView" destination="ag4-I5-wqU" id="BZm-tM-4kP"/>
@@ -858,7 +860,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQu-h5-fKh" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
-                                <rect key="frame" x="32" y="496.5" width="105" height="28"/>
+                                <rect key="frame" x="32" y="511.5" width="105" height="28"/>
                                 <color key="backgroundColor" name="secundaryColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="105" id="fI8-xW-dkn"/>
@@ -874,7 +876,13 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="color">
                                         <color key="value" name="primaryColor"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="width">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="pauseScan:" destination="mfO-5i-YKI" eventType="touchUpInside" id="D8b-Lg-3sa"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -882,7 +890,7 @@
                             <constraint firstItem="EtZ-dC-cCo" firstAttribute="centerY" secondItem="rBY-T3-7Lu" secondAttribute="centerY" id="8GJ-ZI-1Rx"/>
                             <constraint firstItem="ABF-R3-OKU" firstAttribute="leading" secondItem="w6F-wy-Rfv" secondAttribute="leading" constant="16" id="9s9-Dv-lVb"/>
                             <constraint firstItem="q9h-Ha-XxY" firstAttribute="top" secondItem="rBY-T3-7Lu" secondAttribute="bottom" constant="8" id="G71-e7-fSZ"/>
-                            <constraint firstItem="kQu-h5-fKh" firstAttribute="bottom" secondItem="8S6-gx-pYn" secondAttribute="bottom" id="Jc4-KG-qP2"/>
+                            <constraint firstItem="kQu-h5-fKh" firstAttribute="bottom" secondItem="8S6-gx-pYn" secondAttribute="bottom" constant="15" id="Jc4-KG-qP2"/>
                             <constraint firstItem="EtZ-dC-cCo" firstAttribute="trailing" secondItem="q9h-Ha-XxY" secondAttribute="trailing" id="KwB-3T-RQH"/>
                             <constraint firstItem="z1f-oB-Eqv" firstAttribute="leading" secondItem="ABF-R3-OKU" secondAttribute="trailing" constant="8" id="LCR-He-5PK"/>
                             <constraint firstItem="z1f-oB-Eqv" firstAttribute="top" secondItem="w6F-wy-Rfv" secondAttribute="top" constant="16" id="W51-eG-by3"/>
@@ -901,12 +909,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="mZO-VJ-04z"/>
                     <connections>
+                        <outlet property="pauseButton" destination="kQu-h5-fKh" id="rUG-HS-6ul"/>
+                        <outlet property="productsTableView" destination="jIF-L8-AiC" id="IEh-2c-bA4"/>
                         <outlet property="scannerView" destination="8S6-gx-pYn" id="NgP-Qq-ip9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AxC-SK-c7U" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="987" y="-143"/>
+            <point key="canvasLocation" x="986.95652173913049" y="-143.30357142857142"/>
         </scene>
     </scenes>
     <resources>
@@ -918,7 +928,7 @@
         <image name="logo_app" width="150" height="150"/>
         <image name="logo_company" width="680" height="126"/>
         <namedColor name="primaryColor">
-            <color red="0.0" green="0.49019607843137253" blue="0.30588235294117649" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.31372549019607843" green="0.69019607843137254" blue="0.66274509803921566" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="secundaryColor">
             <color red="0.0" green="0.30980392156862746" blue="0.44313725490196076" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -31,6 +31,7 @@ class ScanBarcodeViewController: UIViewController, MVVM_View, BarcodeCaptureList
     @IBOutlet weak var bottomSheet: DesignableView!
     @IBOutlet weak var numberOfScans: DesignableLabel!
     @IBOutlet weak var changeCamera: DesignableButton!
+    @IBOutlet weak var changeCameraButton: DesignableButton!
     
     var codes = [String : Product]()
     var productScanned : Bool = false
@@ -181,8 +182,10 @@ class ScanBarcodeViewController: UIViewController, MVVM_View, BarcodeCaptureList
             let cam = Camera(position: .userFacing)!
             cam.switch(toDesiredState: .on)
             initScan(camera: cam)
+            changeCamera.titleLabel?.text = "Cámara trasera"
         }
         else{
+            changeCamera.titleLabel?.text = "Cámara frontal"
             initScan(camera: Camera.default!)
         }
     }

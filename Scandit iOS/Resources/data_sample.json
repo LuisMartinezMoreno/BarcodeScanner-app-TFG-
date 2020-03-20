@@ -22,7 +22,7 @@
     "DiscountPrice": 0,
     "DateStartPromo": 0,
     "DateEndPromo": 0,
-    "Quantity": 0,
+    "Quantity": 15,
     "Size": 90,
     "sizeFormat": "ml",
     "QTE": 20
@@ -64,7 +64,7 @@
     "DiscountPrice": 0,
     "DateStartPromo": 0,
     "DateEndPromo": 0,
-    "Quantity": 0,
+    "Quantity": 80,
     "Size": 700,
     "sizeFormat": "ml",
     "QTE": 200
@@ -117,7 +117,7 @@
     "Description": "MOUSSEL MOUSSEL FRASCO",
     "Season": 201,
     "SalePrice": "4,95",
-    "DiscountPrice": 0,
+    "DiscountPrice": 2,
     "DateStartPromo": 0,
     "DateEndPromo": 0,
     "Quantity": 0,

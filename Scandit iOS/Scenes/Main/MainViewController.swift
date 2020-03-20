@@ -21,6 +21,7 @@ class MainViewController: UIViewController, MVVM_View {
     @IBOutlet weak var consultProductView: DesignableView!
     @IBOutlet weak var scanButtonView: DesignableView!
     @IBOutlet weak var barCodeImage: UIImageView!
+    @IBOutlet weak var iecisaImage: UIImageView!
     
     // MARK: Functions
     
@@ -35,6 +36,8 @@ class MainViewController: UIViewController, MVVM_View {
       }
     
     func initView(){
+        iecisaImage.image = iecisaImage.image?.withRenderingMode(.alwaysTemplate)
+        iecisaImage.tintColor = UIColor.init(named: "primaryColor")
          let consultGesture = UITapGestureRecognizer(target: self, action:  #selector (self.navigateConsult(_:)))
          self.consultProductView.addGestureRecognizer(consultGesture)
          let scanGesture = UITapGestureRecognizer(target: self, action:  #selector (self.navigateScan(_:)))

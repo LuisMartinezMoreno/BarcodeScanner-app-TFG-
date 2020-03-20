@@ -31,11 +31,42 @@ class DouglasProduct : Product {
         super.mapping(map: map)
         season <- map["Season"]
         discountPrice <- map["DiscountPrice"]
-        dateStartPromo <- map["DateStartPromo"]
-        dateEndPromo <- map["DateEndPromo"]
-        quantity <- map["Quantity"]
+        quantity = Int.random(in: ClosedRange<Int>(uncheckedBounds: (lower: 1, upper: 100)))
         size <- map["Size"]
         sizeformat  <- map["sizeFormat"]
         qte <- map["QTE"]
+        dateStartPromo = Date().millisecondsSince1970
+        dateEndPromo = (dateStartPromo ?? 0) + ((Int.random(in: ClosedRange<Int>(uncheckedBounds: (lower: 1, upper: 30))))*24*60*60*60)
+    }
+    
+    override func verifyStock() -> StockState{
+        guard let value = self.quantity else {return .NeedStock}
+        if(value < 10){
+            return .NeedStock
+        }
+        
+        else if(value < 30){
+            return .LowStock
+        }
+        else{
+            return .inStock
+        }
+    }
+    
+}
+enum StockState {
+    case NeedStock
+    case LowStock
+    case inStock
+    
+    var description: String {
+        switch self {
+        case .NeedStock:
+            return "Reponer Stock"
+        case .LowStock:
+            return "Existencias bajas en Stock"
+        case .inStock:
+            return "En Stock"
+        }
     }
 }

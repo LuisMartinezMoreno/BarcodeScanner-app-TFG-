@@ -14,7 +14,7 @@ class Product : Mappable {
     var code : String?
     var ean : String?
     var description : String?
-    var price : Double?
+    var price : String?
     
     required init?(map: Map) {
         
@@ -30,20 +30,8 @@ class Product : Mappable {
         price <- map["SalePrice"]
     }
     
-    /*init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        code = try container.decode(String.self, forKey: .code)
-        ean = try container.decode(String.self, forKey: .ean)
-        description = try container.decode(String.self, forKey: .description)
-        price = try container.decode(Double.self, forKey: .price)
-        data = try container.decode(T.self, forKey: .data)
+    func verifyStock() -> StockState{
+        return .NeedStock
     }
     
-    enum CodingKeys : String, CodingKey {
-        case code = "CodeArticle"
-        case description
-        case ean = "CodeEAN"
-        case price = "SalePrice"
-        case data
-    }*/
 }
