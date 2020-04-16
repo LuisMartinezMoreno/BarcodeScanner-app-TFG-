@@ -27,6 +27,7 @@ class PromotionTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        initImages()
         // Initialization code
     }
 
@@ -34,6 +35,20 @@ class PromotionTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func initImages(){
+        sizeImage.image = sizeImage.image?.withRenderingMode(.alwaysTemplate)
+        sizeImage.tintColor = UIColor.init(named: "primaryColor")
+        
+        seasonImage.image = seasonImage.image?.withRenderingMode(.alwaysTemplate)
+        seasonImage.tintColor = UIColor.init(named: "primaryColor")
+        
+        stockImage.image = stockImage.image?.withRenderingMode(.alwaysTemplate)
+        stockImage.tintColor = UIColor.init(named: "primaryColor")
+        
+        offerImage.image = offerImage.image?.withRenderingMode(.alwaysTemplate)
+        offerImage.tintColor = UIColor.init(named: "primaryColor")
     }
     
 }

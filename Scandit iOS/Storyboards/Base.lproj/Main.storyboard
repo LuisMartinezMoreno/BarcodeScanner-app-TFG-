@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2zg-zA-r0G">
-                                <rect key="frame" x="16" y="92" width="382" height="126"/>
+                                <rect key="frame" x="16" y="92" width="382" height="252"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_company" translatesAutoresizingMaskIntoConstraints="NO" id="kVm-tL-dv6">
-                                <rect key="frame" x="32" y="618" width="350" height="252"/>
+                                <rect key="frame" x="32" y="744" width="350" height="126"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -68,7 +68,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="252" image="iecisaLogo" translatesAutoresizingMaskIntoConstraints="NO" id="4VK-Uy-8tp">
-                                <rect key="frame" x="-113" y="96" width="640" height="235.5"/>
+                                <rect key="frame" x="47" y="96" width="320" height="235.5"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="Escoge función" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nr1-Qb-o6q">
                                 <rect key="frame" x="107" y="379.5" width="132.5" height="23"/>
@@ -83,7 +83,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="96" height="75"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_barcode_scanner" translatesAutoresizingMaskIntoConstraints="NO" id="jZX-n7-ghp">
-                                                <rect key="frame" x="35" y="-136.5" width="26" height="300"/>
+                                                <rect key="frame" x="35" y="-61.5" width="26" height="150"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Escanear Barcode" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IeD-xF-1HN">
@@ -124,7 +124,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="btn_stock_checker" translatesAutoresizingMaskIntoConstraints="NO" id="BbB-Ff-GgU">
-                                                <rect key="frame" x="35" y="-136.5" width="26" height="300"/>
+                                                <rect key="frame" x="35" y="-61.5" width="26" height="150"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" name="secundaryColor"/>
@@ -306,8 +306,8 @@
                                 <color key="textColor" name="primaryColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="s99-17-OHO" customClass="DesignableView" customModule="Douglas" customModuleProvider="target">
-                                <rect key="frame" x="16" y="179" width="378" height="252.5"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="s99-17-OHO" customClass="DesignableView" customModule="Douglas" customModuleProvider="target">
+                                <rect key="frame" x="16" y="179" width="378" height="313.5"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusOfView">
                                         <real key="value" value="10"/>
@@ -358,10 +358,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="747" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Cuc-sN-SFo">
-                                <rect key="frame" x="32" y="586" width="350" height="78.5"/>
+                                <rect key="frame" x="32" y="633" width="350" height="63"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o2c-Cn-FQc" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="78.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="63"/>
                                         <color key="backgroundColor" name="secundaryColor"/>
                                         <state key="normal" title="4">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -376,7 +376,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qjc-rV-Qux" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
-                                        <rect key="frame" x="119.5" y="0.0" width="111" height="78.5"/>
+                                        <rect key="frame" x="119.5" y="0.0" width="111" height="63"/>
                                         <color key="backgroundColor" name="secundaryColor"/>
                                         <state key="normal" title="5">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -391,7 +391,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sRJ-Kb-mlc" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
-                                        <rect key="frame" x="238.5" y="0.0" width="111.5" height="78.5"/>
+                                        <rect key="frame" x="238.5" y="0.0" width="111.5" height="63"/>
                                         <color key="backgroundColor" name="secundaryColor"/>
                                         <state key="normal" title="6">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -408,10 +408,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="747" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ezb-gM-Pa1">
-                                <rect key="frame" x="32" y="672.5" width="350" height="78.5"/>
+                                <rect key="frame" x="32" y="704" width="350" height="62.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cWI-xF-nra" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="78.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="62.5"/>
                                         <color key="backgroundColor" name="secundaryColor"/>
                                         <state key="normal" title="7">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -426,7 +426,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jjm-tR-Pwh" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
-                                        <rect key="frame" x="119.5" y="0.0" width="111" height="78.5"/>
+                                        <rect key="frame" x="119.5" y="0.0" width="111" height="62.5"/>
                                         <color key="backgroundColor" name="secundaryColor"/>
                                         <state key="normal" title="8">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -441,7 +441,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayp-pk-oVf" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
-                                        <rect key="frame" x="238.5" y="0.0" width="111.5" height="78.5"/>
+                                        <rect key="frame" x="238.5" y="0.0" width="111.5" height="62.5"/>
                                         <color key="backgroundColor" name="secundaryColor"/>
                                         <state key="normal" title="9">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -458,10 +458,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="747" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8mV-cJ-XLw">
-                                <rect key="frame" x="32" y="759" width="350" height="79"/>
+                                <rect key="frame" x="32" y="774.5" width="350" height="63.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Cfa-xq-z8S" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="79"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="63.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <state key="normal" title="CANCELAR">
@@ -484,7 +484,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4rx-pr-7w8" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
-                                        <rect key="frame" x="119.5" y="0.0" width="111" height="79"/>
+                                        <rect key="frame" x="119.5" y="0.0" width="111" height="63.5"/>
                                         <color key="backgroundColor" name="secundaryColor"/>
                                         <state key="normal" title="0">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -499,7 +499,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="l5S-qA-gY5" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
-                                        <rect key="frame" x="238.5" y="0.0" width="111.5" height="79"/>
+                                        <rect key="frame" x="238.5" y="0.0" width="111.5" height="63.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <state key="normal" title="AÑADIR">
@@ -523,7 +523,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <view contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Ulu-JA-iHK">
+                            <view contentMode="scaleToFill" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Ulu-JA-iHK">
                                 <rect key="frame" x="212" y="161.5" width="190" height="2"/>
                                 <color key="backgroundColor" name="primaryColor"/>
                                 <constraints>
@@ -532,10 +532,10 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="747" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="chd-xf-k8L">
-                                <rect key="frame" x="32" y="499.5" width="350" height="78.5"/>
+                                <rect key="frame" x="32" y="562.5" width="350" height="62.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTd-iY-C8P" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="78.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="111.5" height="62.5"/>
                                         <color key="backgroundColor" name="secundaryColor"/>
                                         <state key="normal" title="1">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -550,7 +550,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yam-2K-Lvm" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
-                                        <rect key="frame" x="119.5" y="0.0" width="111" height="78.5"/>
+                                        <rect key="frame" x="119.5" y="0.0" width="111" height="62.5"/>
                                         <color key="backgroundColor" name="secundaryColor"/>
                                         <state key="normal" title="2">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -565,7 +565,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qi7-vY-pnZ" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
-                                        <rect key="frame" x="238.5" y="0.0" width="111.5" height="78.5"/>
+                                        <rect key="frame" x="238.5" y="0.0" width="111.5" height="62.5"/>
                                         <color key="backgroundColor" name="secundaryColor"/>
                                         <state key="normal" title="3">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -581,8 +581,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="747" text="Introduce una cantidad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amK-mZ-9ND" customClass="DesignableLabel" customModule="Douglas" customModuleProvider="target">
-                                <rect key="frame" x="93.5" y="447.5" width="223" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="747" text="Introduce una cantidad" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="amK-mZ-9ND" customClass="DesignableLabel" customModule="Douglas" customModuleProvider="target">
+                                <rect key="frame" x="93.5" y="508.5" width="223" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="eU9-68-dzv"/>
                                 </constraints>
@@ -602,7 +602,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Luh-dk-kJY" customClass="DesignableButton" customModule="Douglas" customModuleProvider="target">
-                                <rect key="frame" x="32" y="415.5" width="141" height="28"/>
+                                <rect key="frame" x="32" y="479.5" width="141" height="28"/>
                                 <color key="backgroundColor" name="secundaryColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="141" id="Mh7-LY-S2d"/>
@@ -742,6 +742,7 @@
                             <constraint firstItem="v5l-oH-N4d" firstAttribute="trailing" secondItem="8me-fo-6g5" secondAttribute="trailing" constant="16" id="9ud-2V-Dk3"/>
                             <constraint firstItem="Cuc-sN-SFo" firstAttribute="top" secondItem="chd-xf-k8L" secondAttribute="bottom" constant="8" id="A9R-Xe-yd2"/>
                             <constraint firstItem="amK-mZ-9ND" firstAttribute="width" relation="greaterThanOrEqual" secondItem="dw4-Ki-yKi" secondAttribute="width" multiplier="0.538647" id="Aab-W2-KlL"/>
+                            <constraint firstItem="s99-17-OHO" firstAttribute="height" secondItem="dw4-Ki-yKi" secondAttribute="height" multiplier="0.35" id="AhM-sv-Ts9"/>
                             <constraint firstItem="a1y-qd-HaD" firstAttribute="leading" secondItem="v5l-oH-N4d" secondAttribute="leading" constant="6" id="CMx-gT-ZKp"/>
                             <constraint firstItem="8mV-cJ-XLw" firstAttribute="leading" secondItem="chd-xf-k8L" secondAttribute="leading" id="Dh9-cw-w4a"/>
                             <constraint firstItem="LIv-tK-lGi" firstAttribute="width" secondItem="s99-17-OHO" secondAttribute="width" multiplier="0.941799" id="Fww-b9-BZZ"/>
@@ -754,8 +755,9 @@
                             <constraint firstItem="It3-PL-sEO" firstAttribute="leading" secondItem="v5l-oH-N4d" secondAttribute="leading" id="UQv-bF-0RN"/>
                             <constraint firstItem="s99-17-OHO" firstAttribute="leading" secondItem="3qj-fZ-WAH" secondAttribute="leading" id="Urv-F8-KUN"/>
                             <constraint firstItem="It3-PL-sEO" firstAttribute="top" secondItem="8mV-cJ-XLw" secondAttribute="bottom" constant="32" id="VOi-0B-Hn4"/>
+                            <constraint firstItem="Luh-dk-kJY" firstAttribute="bottom" secondItem="s99-17-OHO" secondAttribute="bottom" constant="15" id="WVP-we-Nul"/>
                             <constraint firstItem="LIv-tK-lGi" firstAttribute="leading" secondItem="3qj-fZ-WAH" secondAttribute="leading" id="Wn1-Yp-t4e"/>
-                            <constraint firstItem="chd-xf-k8L" firstAttribute="height" secondItem="dw4-Ki-yKi" secondAttribute="height" multiplier="0.0875209" id="XPu-CN-4ww"/>
+                            <constraint firstItem="chd-xf-k8L" firstAttribute="height" secondItem="dw4-Ki-yKi" secondAttribute="height" multiplier="0.07" id="XPu-CN-4ww"/>
                             <constraint firstItem="s99-17-OHO" firstAttribute="leading" secondItem="MYR-2a-aGj" secondAttribute="leading" id="YEv-x3-BYs"/>
                             <constraint firstItem="LIv-tK-lGi" firstAttribute="top" secondItem="MYR-2a-aGj" secondAttribute="bottom" constant="8" id="a0T-5V-WMs"/>
                             <constraint firstItem="It3-PL-sEO" firstAttribute="height" secondItem="dw4-Ki-yKi" secondAttribute="height" multiplier="0.5" id="aZL-aQ-rn6"/>
@@ -776,7 +778,6 @@
                             <constraint firstItem="ezb-gM-Pa1" firstAttribute="trailing" secondItem="chd-xf-k8L" secondAttribute="trailing" id="qcb-Na-y7f"/>
                             <constraint firstItem="amK-mZ-9ND" firstAttribute="top" secondItem="s99-17-OHO" secondAttribute="bottom" constant="16" id="tNq-gf-NUr"/>
                             <constraint firstItem="3qj-fZ-WAH" firstAttribute="top" secondItem="v5l-oH-N4d" secondAttribute="top" constant="16" id="teg-9A-UaS"/>
-                            <constraint firstItem="chd-xf-k8L" firstAttribute="top" secondItem="Luh-dk-kJY" secondAttribute="bottom" constant="56" id="uLs-6E-Ncf"/>
                             <constraint firstItem="Ulu-JA-iHK" firstAttribute="trailing" secondItem="dw4-Ki-yKi" secondAttribute="trailingMargin" constant="8" id="uME-Hn-FXK"/>
                             <constraint firstItem="chd-xf-k8L" firstAttribute="height" secondItem="8mV-cJ-XLw" secondAttribute="height" multiplier="0.989691" id="vI8-Q5-gjh"/>
                             <constraint firstItem="It3-PL-sEO" firstAttribute="top" secondItem="a1y-qd-HaD" secondAttribute="bottom" constant="16" id="wmq-QA-zAX"/>
@@ -788,8 +789,7 @@
                     <navigationItem key="navigationItem" id="zbp-TI-n9X"/>
                     <connections>
                         <outlet property="bottomSheet" destination="It3-PL-sEO" id="jRv-Q3-vfS"/>
-                        <outlet property="changeCamera" destination="Luh-dk-kJY" id="scO-d4-VGN"/>
-                        <outlet property="changeCameraButton" destination="Luh-dk-kJY" id="WJd-P0-lLs"/>
+                        <outlet property="changeCameraButton" destination="Luh-dk-kJY" id="P14-IB-69L"/>
                         <outlet property="numberOfScans" destination="a1y-qd-HaD" id="asJ-ia-m8l"/>
                         <outlet property="productLabel" destination="MZ5-0F-W6r" id="j7q-Oe-JXz"/>
                         <outlet property="productsTableView" destination="ag4-I5-wqU" id="BZm-tM-4kP"/>
@@ -838,7 +838,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="q9h-Ha-XxY">
                                 <rect key="frame" x="10" y="163.5" width="394" height="722.5"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8S6-gx-pYn" customClass="DesignableView" customModule="Douglas" customModuleProvider="target">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8S6-gx-pYn" customClass="DesignableView" customModule="Douglas" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="394" height="361"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusOfView">

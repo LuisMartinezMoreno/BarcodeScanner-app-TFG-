@@ -77,7 +77,6 @@
 		8CAB54A6241B94D1007A35A7 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB54A5241B94D1007A35A7 /* JSONDecoder.swift */; };
 		8CAB54A7241B94D1007A35A7 /* JSONDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB54A5241B94D1007A35A7 /* JSONDecoder.swift */; };
 		8CAB54AB241BA4A4007A35A7 /* DouglasRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB54A9241BA051007A35A7 /* DouglasRepository.swift */; };
-		8CB5ACC4242355FA00B320A5 /* ConsultProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CB5ACC2242355FA00B320A5 /* ConsultProductTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,7 +123,6 @@
 		8CAB54A3241B9498007A35A7 /* data_sample_merkal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data_sample_merkal.json; sourceTree = "<group>"; };
 		8CAB54A5241B94D1007A35A7 /* JSONDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONDecoder.swift; sourceTree = "<group>"; };
 		8CAB54A9241BA051007A35A7 /* DouglasRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DouglasRepository.swift; sourceTree = "<group>"; };
-		8CB5ACC2242355FA00B320A5 /* ConsultProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsultProductTableViewCell.swift; sourceTree = "<group>"; };
 		95365C3502658BAEF68E10F6 /* libPods-Scandit iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Scandit iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E63743AC1AB55FF90FD251 /* Pods-Scandit iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scandit iOS.release.xcconfig"; path = "Target Support Files/Pods-Scandit iOS/Pods-Scandit iOS.release.xcconfig"; sourceTree = "<group>"; };
 		E5A737F24058D22A5F16CC51 /* Pods-Douglas.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Douglas.release.xcconfig"; path = "Target Support Files/Pods-Douglas/Pods-Douglas.release.xcconfig"; sourceTree = "<group>"; };
@@ -233,7 +231,6 @@
 				8CB5ACC72423906600B320A5 /* Cell */,
 				3D83A7A2241655AA00B45865 /* ConsultProductViewModel.swift */,
 				3D83A7A4241655CF00B45865 /* ConsultProductViewController.swift */,
-				8CB5ACC2242355FA00B320A5 /* ConsultProductTableViewCell.swift */,
 			);
 			path = ConsultProduct;
 			sourceTree = "<group>";
@@ -598,7 +595,6 @@
 				3D9C732824177EDF00E1A220 /* MainViewController.swift in Sources */,
 				3D9C732924177EDF00E1A220 /* DesignableLabel.swift in Sources */,
 				8C9C2F3B2424DD2B00B75F04 /* DateMilliseconds.swift in Sources */,
-				8CB5ACC4242355FA00B320A5 /* ConsultProductTableViewCell.swift in Sources */,
 				3D9C732A24177EDF00E1A220 /* DesignableButton.swift in Sources */,
 				8CAB5490241B69C3007A35A7 /* NavigationBarDesignable.swift in Sources */,
 			);

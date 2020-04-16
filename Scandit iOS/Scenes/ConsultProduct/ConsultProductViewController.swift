@@ -38,8 +38,7 @@ class ConsultProductViewController: UIViewController, MVVM_View, UITableViewData
         super.viewDidLoad()
         bindViewModel()
         registerTableViewCells()
-        //productsTableView.register(UINib.init(nibName: "StockTableViewCell", bundle: Bundle.init(identifier: "com.iecisa.Scandit-iOS")), forCellReuseIdentifier: "outStockCell")
-        // Do any additional setup after loading the view.
+        initPlaceholder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,6 +70,20 @@ class ConsultProductViewController: UIViewController, MVVM_View, UITableViewData
         self.productsTableView.register(correctCell, forCellReuseIdentifier: "correctCell")
         let promotionCell = UINib(nibName: "PromotionTableViewCell", bundle: nil)
         self.productsTableView.register(promotionCell, forCellReuseIdentifier: "promotionCell")
+    }
+    
+    private func initPlaceholder(){
+        let placeholder = UILabel()
+        placeholder.text = "\"Comience a escanear productos para ver su estado\""
+        placeholder.frame.size.height = 42
+        placeholder.frame.origin.x = productsTableView.frame.origin.x
+        placeholder.center.y = (productsTableView.frame.size.height/3)
+        placeholder.frame.size.width = (productsTableView.frame.size.width)
+        placeholder.numberOfLines = 2
+        placeholder.textColor = UIColor.gray
+        placeholder.textAlignment = .left
+        placeholder.tag = 1
+        productsTableView.addSubview(placeholder)
     }
     
     private func initRecognition() {
@@ -114,12 +127,14 @@ class ConsultProductViewController: UIViewController, MVVM_View, UITableViewData
             barcodeTracking.isEnabled = true
             camera?.switch(toDesiredState: .on)
             results.removeAll()
-            pauseButton.titleLabel?.text = "Pausar scan"
+            pauseButton.setTitle("Pausar scan", for: .normal)
+            initPlaceholder()
         }
         else{
             barcodeTracking.isEnabled = false
             camera?.switch(toDesiredState: .off)
-            pauseButton.titleLabel?.text = "Reiniciar scan"
+            pauseButton.setTitle("Reiniciar scan", for: .normal)
+            self.productsTableView.viewWithTag(1)?.removeFromSuperview()
         }
         productsTableView.reloadData()
     }
