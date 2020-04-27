@@ -76,7 +76,7 @@ class ScanBarcodeViewController: UIViewController, MVVM_View, BarcodeCaptureList
         viewModel = ScanBarcodeViewModel()
         self.viewModel.codes = self.codes
         self.viewModel.$scannedProduct.receive(on: DispatchQueue.main).sink{
-            result in
+            [unowned self] result in
             guard let description = result.description, let ean = result.ean else {return}
             self.productLabel.text = description + " \(ean)"
             self.productScanned = true
