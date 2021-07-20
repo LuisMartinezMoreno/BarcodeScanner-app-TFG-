@@ -14,6 +14,4 @@ class NavigationBarDesignable: UINavigationBar {
     override func draw(_ rect: CGRect) {
         self.backgroundColor = UIColor.systemBackground
     }
-    
-
 }

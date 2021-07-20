@@ -2,8 +2,8 @@
 //  ConsultProductViewController.swift
 //  Scandit iOS
 //
-//  Created by 67883058 on 09/03/2020.
-//  Copyright © 2020 IECISA. All rights reserved.
+//  Created by Luis Martínez Moreno on 01/05/21.
+//  Copyright © 2021 IECISA. All rights reserved.
 //
 
 import UIKit
@@ -30,23 +30,24 @@ class ConsultProductViewController: UIViewController, MVVM_View, UITableViewData
     @IBOutlet weak var productsTableView: UITableView!
     @IBOutlet weak var pauseButton: DesignableButton!
     
+    private var advancedOverlay: BarcodeTrackingAdvancedOverlay!
+    private var overlays: [Int: StockOverlay] = [:]
+    private var arrayProductos: [DouglasProduct] = []
+    
     
     
     // MARK: Functions
     
     override func viewDidLoad() {
+//        print("viewDidLoad")
         super.viewDidLoad()
         bindViewModel()
-        registerTableViewCells()
         initPlaceholder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // Remove results when the tracking starts
         results.removeAll()
-        productsTableView.rowHeight = 200
-        productsTableView.dataSource = self
         initRecognition()
         
     }
@@ -60,34 +61,20 @@ class ConsultProductViewController: UIViewController, MVVM_View, UITableViewData
     
     func bindViewModel() {
         viewModel = ConsultProductViewModel()
-        self.viewModel.readProducts()
-    }
-    
-    func registerTableViewCells(){
-        let stockCell = UINib(nibName: "StockTableViewCell", bundle: nil)
-        self.productsTableView.register(stockCell, forCellReuseIdentifier: "stockCell")
-        let correctCell = UINib(nibName: "CorrectTableViewCell", bundle: nil)
-        self.productsTableView.register(correctCell, forCellReuseIdentifier: "correctCell")
-        let promotionCell = UINib(nibName: "PromotionTableViewCell", bundle: nil)
-        self.productsTableView.register(promotionCell, forCellReuseIdentifier: "promotionCell")
     }
     
     private func initPlaceholder(){
         let placeholder = UILabel()
         placeholder.text = "\"Comience a escanear productos para ver su estado\""
         placeholder.frame.size.height = 42
-        placeholder.frame.origin.x = productsTableView.frame.origin.x
-        placeholder.center.y = (productsTableView.frame.size.height/3)
-        placeholder.frame.size.width = (productsTableView.frame.size.width)
         placeholder.numberOfLines = 2
         placeholder.textColor = UIColor.gray
         placeholder.textAlignment = .left
         placeholder.tag = 1
-        productsTableView.addSubview(placeholder)
     }
     
     private func initRecognition() {
-        
+//        print("initRecoginition")
         context = DataCaptureContext.licensed
         
         camera = Camera.default
@@ -115,9 +102,58 @@ class ConsultProductViewController: UIViewController, MVVM_View, UITableViewData
         
         barcodeTracking.isEnabled = true
         camera?.switch(toDesiredState: .on)
-        //Optional
         overlay = BarcodeTrackingBasicOverlay(barcodeTracking: barcodeTracking, view: captureView)
+        advancedOverlay = BarcodeTrackingAdvancedOverlay(barcodeTracking: barcodeTracking, view: captureView)
+        advancedOverlay.delegate = self
+    }
+    
+    private func stockOverlay(for trackedCode: TrackedBarcode) -> StockOverlay? {
+        let identifier = trackedCode.identifier
+//        print("Identifier: ",identifier)
+//        print("trackedCode",trackedCode.barcode.data as Any)
+//        print("tipo",type (of:trackedCode.barcode))
+        var overlay: StockOverlay
+        let producto = getProduct(eanCode: trackedCode.barcode.data!)
         
+        if overlays.keys.contains(identifier) {
+            overlay = overlays[identifier]!
+        } else {
+            // Get the information you want to show from your back end system/database.
+            if(producto != nil){
+                overlay = StockOverlay(with: StockModel(description: producto!.description, price: (producto!.price)! as String,discountPrice: producto!.discountPrice, totalPrice: 6, uds: producto?.quantity))
+            }
+            else{
+                overlay = StockOverlay(with: StockModel (description: "unknown product",
+                                                         price:"0" ,discountPrice: 0, totalPrice: 0, uds: 0 )
+                                       
+                )}
+            overlays[identifier] = overlay
+        }
+        return overlay
+    }
+    
+    private func getProduct(eanCode: String) ->DouglasProduct?{
+        
+        var i:Int = 0
+        let tam:Int = self.arrayProductos.count
+        while i < tam
+        {
+            if(eanCode == self.arrayProductos[i].ean){
+                return self.arrayProductos[i]
+            }
+            i+=1
+        }
+        
+        let tam2:Int = self.arrayProductos.count
+        var j:Int = 0
+        while j < tam2
+        {
+            if(eanCode == self.arrayProductos[j].ean){
+                return self.arrayProductos[j]
+            }
+            j+=1
+        }
+        return nil
     }
     
     //MARK: Button function
@@ -134,12 +170,13 @@ class ConsultProductViewController: UIViewController, MVVM_View, UITableViewData
             barcodeTracking.isEnabled = false
             camera?.switch(toDesiredState: .off)
             pauseButton.setTitle("Reiniciar scan", for: .normal)
-            self.productsTableView.viewWithTag(1)?.removeFromSuperview()
         }
-        productsTableView.reloadData()
     }
     
-    
+    func setArray(array: [DouglasProduct]){
+        arrayProductos = array
+    }
+
     
 }
 
@@ -151,7 +188,16 @@ extension ConsultProductViewController: BarcodeTrackingListener {
         DispatchQueue.main.async { [weak self] in
             session.trackedBarcodes.values.compactMap({ $0.barcode }).forEach {
                 if let self = self, let data = $0.data, !data.isEmpty {
-                    self.results[data] = $0
+                    let eanCode = $0.data
+                    let tam:Int = self.arrayProductos.count
+                    var i:Int = 0
+                    while i < tam
+                    {
+                        if(eanCode! == self.arrayProductos[i].ean){
+//                            print("COINCIDE",eanCode as Any)
+                        }
+                        i+=1
+                    }
                 }
             }
         }
@@ -167,66 +213,45 @@ extension ConsultProductViewController: BarcodeTrackingListener {
         
         let productCode = Array(results.keys)[indexPath.row]
         let product = self.viewModel.codes[productCode]
-        guard let season = product!.season, let pStock = product!.quantity, let offer = product!.discountPrice else {return UITableViewCell()}
-        guard let discountPrice = product?.discountPrice else {return UITableViewCell()}
-        guard let size = product!.size, let sizeFormat = product!.sizeformat else {return UITableViewCell()}
-        guard let price = product!.price else {return UITableViewCell()}
-        let dprice = price.replacingOccurrences(of: ",", with: ".")
-        guard let finalprice = Double(dprice) else {return UITableViewCell()}
-        let newprice = Int((Double(offer) / finalprice)*100)
-        
-        
-        let stock = product!.verifyStock()
+        let cell : UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "promotionCell", for: indexPath)
         if(product?.discountPrice != 0){      /* PROMOTION PRODUCT CELL */
-            let cell : PromotionTableViewCell = tableView.dequeueReusableCell(withIdentifier: "promotionCell", for: indexPath) as! PromotionTableViewCell
-            guard let start = product?.dateStartPromo else {return UITableViewCell()}
-            let date = Date(milliseconds: start)
             let dateFormatterStart = DateFormatter()
             dateFormatterStart.dateFormat = "dd/MM/yyyy"
-            guard let end = product?.dateEndPromo else {return UITableViewCell()}
-            let dateEnd = Date(milliseconds: end)
             let endDateFormatter = DateFormatter()
             endDateFormatter.dateFormat = "dd/MM/yyyy"
-            cell.productNameLabel.text = product!.description
-            cell.product = product!
-            cell.priceLabel.text = " " + "\(product!.price!)" + " € "
-            cell.newPriceLabel.text = " NEW \(discountPrice) € "
-            cell.sizeLabel.text = "\(size)" + " " + "\(sizeFormat)"
-            cell.seasonNumberLabel.text = "\(season)"
-            cell.numberStock.text = "\(pStock)"
-            cell.offerLabel.text = "\(newprice)" + " %"
-            cell.promotionLabel.text = "Desde \(dateFormatterStart.string(from: date)) hasta \(endDateFormatter.string(from: dateEnd))"
-            return cell
         }
-        else if(stock == .NeedStock || stock == .LowStock){      /* LOW STOCK CELL */
-            
-            let cell : StockTableViewCell = tableView.dequeueReusableCell(withIdentifier: "stockCell", for: indexPath) as! StockTableViewCell
-            cell.product = product!
-            cell.productNameLabel.text = product!.description
-            cell.priceLabel.text = " " + "\(product!.price!)" + " € "
-            cell.sizeLabel.text = "\(size)" + " " + "\(sizeFormat)"
-            cell.seasonNumberLabel.text = "\(season)"
-            cell.numberStock.text = "\(pStock)"
-            cell.offerLabel.text = "\(newprice)" + " %"
-            cell.stateLabel.text = stock.description
-            if(stock == .NeedStock){
-                cell.stateLabel.textColor = UIColor.orange
-            }
-            else{
-                cell.stateLabel.textColor = UIColor.green
-            }
-            return cell
+        return cell
+    }
+}
+
+extension ConsultProductViewController: BarcodeCaptureListener {
+    func barcodeCapture(_ barcodeCapture: BarcodeCapture,
+                        didScanIn session: BarcodeCaptureSession,
+                        frameData: FrameData) {
+        let recognizedBarcodes = session.newlyRecognizedBarcodes
+        for barcode in recognizedBarcodes {
+//            print("reconocido:",barcode)
         }
-        else{      /* CORRECT STATE CELL */
-            let cell : CorrectTableViewCell = tableView.dequeueReusableCell(withIdentifier: "correctCell", for: indexPath) as! CorrectTableViewCell
-            cell.productNameLabel.text = product!.description
-            cell.product = product!
-            cell.priceLabel.text = " " + "\(product!.price!)" + " € "
-            cell.sizeLabel.text = "\(size)" + " " + "\(sizeFormat)"
-            cell.seasonNumberLabel.text = "\(season)"
-            cell.numberStock.text = "\(pStock)"
-            cell.offerLabel.text = "\(newprice)" + " %"
-            return cell
-        }
+    }
+}
+
+extension ConsultProductViewController: BarcodeTrackingAdvancedOverlayDelegate {
+    func barcodeTrackingAdvancedOverlay(_ overlay: BarcodeTrackingAdvancedOverlay,
+                                        viewFor trackedBarcode: TrackedBarcode) -> UIView? {
+        return stockOverlay(for: trackedBarcode)
+    }
+    
+    func barcodeTrackingAdvancedOverlay(_ overlay: BarcodeTrackingAdvancedOverlay,
+                                        anchorFor trackedBarcode: TrackedBarcode) -> Anchor {
+        // The offset of our overlay will be calculated from the top center anchoring point.
+        return .topCenter
+    }
+    
+    func barcodeTrackingAdvancedOverlay(_ overlay: BarcodeTrackingAdvancedOverlay,
+                                        offsetFor trackedBarcode: TrackedBarcode) -> PointWithUnit {
+        // We set the offset's height to be equal of the 100 percent of our overlay.
+        // The minus sign means that the overlay will be above the barcode.
+        return PointWithUnit(x: FloatWithUnit(value: 0, unit: .fraction),
+                             y: FloatWithUnit(value: -1, unit: .fraction))
     }
 }

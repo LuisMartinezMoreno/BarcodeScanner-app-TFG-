@@ -2,8 +2,8 @@
 //  ScanditLicense.swift
 //  Scandit iOS
 //
-//  Created by Alejandro Docasal on 13/03/2020.
-//  Copyright © 2020 IECISA. All rights reserved.
+//  Created by Luis Martínez Moreno on 30/05/21.
+//  Copyright © 2021 IECISA. All rights reserved.
 //
 
 import Foundation
@@ -11,6 +11,6 @@ import ScanditBarcodeCapture
 
 extension DataCaptureContext {
     
-    private static let SCANDIT_LICENSE = "ARUemBa+CCJ7N/tpzAkRhhsd22dFN7WNqU5AyLJ0vXAcCI54LlO1xoQsCGXTbFgT4jiWLGRkTaj1QG96JHLuLYBdE+9Ja2606m9vPflSCQBxNh6JpHSxCS5tg4/LM7hf/DR8bkoaColZHv4SRxx250pN0RLYQSWuI3rBl57BYZLDVgFV26Xegppf3xzKBOgnwXLSt7zJyWr+YnWOPQygtXdsgp9JkfS12ohMYIPKBRowKitWVu6hndoAnUN2GffUUsp2hGh25iCo0Wh7QGlBbnIOzVKaBtlebbKkyNBQqJn0U+K5flgFtVjpn2W4/Qwfnnk4q5b9JGW4wIhJwK70qmNAkOexhP2cYq2w1XMCxhrNTsiI1rFxwRG09iNqKPvpwBxpgKsqgp5bR9E1eI7e0eIuEqya5SuQbS6UqWqf4HAYxQB3+q0zE71vHp/tJ4fYc1gGmTYaPmsb2MEtfIL8MN/H2hkZK2Q0gkel6ykfvwQlsp0YWOt+lo+cx4r/NmI8rGmMhFUPusUiA/TDV3ECM8EQJEQS8xTXb6qonLBtZViCcoa2shSSvqG2w7B5QSYuCUVVr1cqyrJKAghZ0QyYcWq9EfF5AgpO5CTHZ9IGBAZUeGPalxsQjzjpLMjPnPhiWALwUsRC61nmc1M0jJbjFvV4qe70Ze+nX7xa0hoRwA/dRBv6LBLCY/D15/60i8wTvAJ6bxu1iR0qgXF3s8ChFJsPlRmzse+8AOrENtGHdMo0MjA1wVH346RoWkJw+fexgP8X5EtoZUF4NxU89wGVNPzRsMasQoeBV4Io3mxmUZjwYjoFdYZr8SdA"
+    private static let SCANDIT_LICENSE = "AS7wmy+6D1MXLsecBRdeMQ8r/yC7ImssZED4WkM/fpxXQFECSwul3ABke5zleVUeMFheRTE5So6ge49uiEQLsWxqHXJTVeRfADGliYJk0rRVbwpqzFQZFeUvyFhiC4GKfQbNlAomGrTfKP6MdzFRcObbvlGHCdpGDn7ugM0aXuc+Koo9r8W/Up+E/93ZUotP8ZSG4VekDHKUYxPvYa+E/XE4I+MFlcx2Dzn3IZ2hMTIJ0kLHRjPuWN7Qb1h+IfBUXIshUYHvMO9oMH6vzCNgcLXOA8oN3xC5ED3c6gtDuOW6ydMnAQUiVOg8AjbWSgpHBzyQ+qBdvYjpolpd2jjUjKUbjf2SXFizrctGzD5qj8969Zwd46wOT3NChs9RNiuaAGPxLZgJEECJukBadpLNPnjj23zXulXpH+wBOaf5xotAngLwVx1mpBEIrZ0fWtZtjmvdGg+/Q0XeRwSkMvZ3vnfwEuuEtipoyO0B4kQO2M7cl3ZNFTTRcAQG/sKbSpRxhsfMtBeE37uDkSwBTrlpOiKa4NFXUt/+ymwHxGuXR/PPD4v16jPPclw3IwLdf1s9rCKu9htzB4hXP2eF3tHM//Sf5GWqRWoR3whxi0i3OXz+vX0IXc5mU5WZ+YQDgazeI3a3/+RGv86O3cvHtRIL+M2K0W72fDIjPR4MzOlM29UK5yAOMhnPYlh8rUtWuqeTQUeNhsK4LPyI/T+lShoXvfn9410fJaF3TPgsg0mkgseC40IeAYOXfbMx7+dPVb7Ek8wS9RdFzljRRyq4IKbxsPQNWRXCAIX8pGReck0xohMoQGpj3IHFjRjox4To7Q=="
     static let licensed = DataCaptureContext(licenseKey: SCANDIT_LICENSE)
 }

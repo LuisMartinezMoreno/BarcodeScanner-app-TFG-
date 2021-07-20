@@ -1,10 +1,12 @@
  platform :ios, '13.0'
+use_frameworks!
 
 def shared
   pod 'ScanditBarcodeCapture'
-  pod 'Alamofire'
-  pod 'ObjectMapper'
-  pod 'RxCombine'
+  pod 'Alamofire', '~> 5.2'
+  pod 'SVProgressHUD'
+  pod 'KeychainAccess'
+  pod 'JWTDecode'
 end
 
 target 'Scandit iOS' do

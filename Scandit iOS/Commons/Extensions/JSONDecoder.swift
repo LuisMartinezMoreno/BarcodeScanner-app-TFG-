@@ -1,19 +1,18 @@
 //
 //  JSONDecoder.swift
-//  RCI Aceptacion Online
+//  Scandit iOS
 //
-//  Created by Bienvenido Fernández Lora on 14/12/2018.
-//  Copyright © 2018 Informática El Corte Inglés. All rights reserved.
+//  Created by Luis Martínez Moreno on 20/04/21.
+//  Copyright © 2021 IECISA. All rights reserved.
 //
 
-//Extensión de JSONDecoder que parsea una respuesta del tipo DataResponse de Alamofire 4
+//Extensión de JSONDecoder que parsea una respuesta del tipo DataResponse de Alamofire 5
 // y lo transforma a un objeto Codable.
-//TODO: MIGRAR a AlamoFire 5 cuando salga de fase beta. Esta extensión dejará de ser necesaria.
 
 import Alamofire
 
 extension JSONDecoder {
-    func decodeResponse<T: Decodable>(from response: DataResponse<Data>) -> Swift.Result<T, Error> {
+    func decodeResponse<T: Decodable>(from response: DataResponse<Data,Error>) -> Swift.Result<T, Error> {
         
         guard response.error == nil else {
             return .failure(response.error!)

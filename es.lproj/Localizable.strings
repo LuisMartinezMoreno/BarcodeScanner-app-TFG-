@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  Scandit iOS
+
+  Created by Luis Martínez Moreno on 28/6/21.
+  Copyright © 2021 IECISA. All rights reserved.
+*/
+
+"precio original: " = "precio original: ";
+
+"descuento" = "descuentos: ";
+
+"(Sin promocion)" = "(Sin promoción)";
+
+"Unidades: " = "Unidades: ";
+
+"Crema anti-arrugas" = "Crema anti-arrugas";
+
+"Desodorante" = "Desodorante";
+
+"Agua micelar" = "Agua micelar";
+
+"Pasta de dientes" = "Pasta de dientes";

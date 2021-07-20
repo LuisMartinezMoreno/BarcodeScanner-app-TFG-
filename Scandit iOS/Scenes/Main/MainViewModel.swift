@@ -2,24 +2,30 @@
 //  MainViewModel.swift
 //  Scandit iOS
 //
-//  Created by 67883058 on 09/03/2020.
-//  Copyright © 2020 IECISA. All rights reserved.
+//  Created by Luis Martínez Moreno on 20/05/21.
+//  Copyright © 2021 IECISA. All rights reserved.
 //
 
 import Foundation
 
 class MainViewModel : MVVM_ViewModel {
     
-    var products = [Product]()
-    var codes = [String : Product]()
-    
-    fileprivate let repository = DouglasRepository()
+    var codes = [String : DouglasProduct]()
+    var products: [DouglasProduct]?
     
     func readProducts(){
-        repository.readProducts(){
-            result in self.products = result
-            for product in self.products {
-                self.codes.updateValue(product, forKey: product.ean!)
+        showLoading()
+        Api.DouglasProducts.getProduct { [weak self] result in
+            self?.handleResult(result, onSuccess: { arrayDouglasProducts in
+                self?.products = arrayDouglasProducts
+            })
+            let defaults = UserDefaults.standard
+            let savedArray = defaults.object(forKey: "SavedArray") as? [DouglasProduct] ?? [DouglasProduct]()
+            if(!savedArray.isEmpty){
+                for product in savedArray
+                {
+                    self?.products?.append(product)
+                }
             }
         }
     }

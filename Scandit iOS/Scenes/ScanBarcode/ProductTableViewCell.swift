@@ -2,8 +2,8 @@
 //  ProductTableViewCell.swift
 //  Scandit iOS
 //
-//  Created by Alejandro Docasal on 18/03/2020.
-//  Copyright © 2020 IECISA. All rights reserved.
+//  Created by Luis Martínez Moreno on 26/03/21.
+//  Copyright © 2021 IECISA. All rights reserved.
 //
 
 import UIKit
@@ -24,8 +24,6 @@ class ProductTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
     @IBAction func stepperAction(_ sender: UIStepper) {

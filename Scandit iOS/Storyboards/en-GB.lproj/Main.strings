@@ -1,0 +1,97 @@
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "4rx-pr-7w8"; */
+"4rx-pr-7w8.normalTitle" = "0";
+
+/* Class = "UILabel"; text = "Formato"; ObjectID = "8WL-rU-taJ"; */
+"8WL-rU-taJ.text" = "Format";
+
+/* Class = "UILabel"; text = "Escanear Código de barras"; ObjectID = "8me-fo-6g5"; */
+"8me-fo-6g5.text" = "Scan barcode";
+
+/* Class = "UILabel"; text = "Demo desarrollada para"; ObjectID = "Bz2-f5-T3S"; */
+"Bz2-f5-T3S.text" = "Demo developed for";
+
+/* Class = "UIButton"; normalTitle = "CANCELAR"; ObjectID = "Cfa-xq-z8S"; */
+"Cfa-xq-z8S.normalTitle" = "CANCEL";
+
+/* Class = "UILabel"; text = "Consultar productos"; ObjectID = "Eb8-2I-zxG"; */
+"Eb8-2I-zxG.text" = "Consult products";
+
+/* Class = "UILabel"; text = "Escanear Barcode"; ObjectID = "IeD-xF-1HN"; */
+"IeD-xF-1HN.text" = "Scan Barcode";
+
+/* Class = "UILabel"; text = "Product Name"; ObjectID = "IwH-Ew-f20"; */
+"IwH-Ew-f20.text" = "Product Name";
+
+/* Class = "UILabel"; text = "Nombre del producto"; ObjectID = "JZV-gi-UWg"; */
+"JZV-gi-UWg.text" = "Product name";
+
+/* Class = "UIButton"; normalTitle = "8"; ObjectID = "Jjm-tR-Pwh"; */
+"Jjm-tR-Pwh.normalTitle" = "8";
+
+/* Class = "UIButton"; normalTitle = "Cámara frontal"; ObjectID = "Luh-dk-kJY"; */
+"Luh-dk-kJY.normalTitle" = "Frontal camera";
+
+/* Class = "UILabel"; text = "Escaneando productos"; ObjectID = "MYR-2a-aGj"; */
+"MYR-2a-aGj.text" = "Scan products";
+
+/* Class = "UILabel"; text = "No se han escaneado productos"; ObjectID = "MZ5-0F-W6r"; */
+"MZ5-0F-W6r.text" = "No products scanned";
+
+/* Class = "UILabel"; text = "Precio del producto"; ObjectID = "NjA-Nz-ESw"; */
+"NjA-Nz-ESw.text" = "Product price";
+
+/* Class = "UIButton"; normalTitle = "3"; ObjectID = "Qi7-vY-pnZ"; */
+"Qi7-vY-pnZ.normalTitle" = "3";
+
+/* Class = "UILabel"; text = "1"; ObjectID = "a1y-qd-HaD"; */
+"a1y-qd-HaD.text" = "1";
+
+/* Class = "UILabel"; text = "Introduce una cantidad"; ObjectID = "amK-mZ-9ND"; */
+"amK-mZ-9ND.text" = "";
+
+/* Class = "UIButton"; normalTitle = "9"; ObjectID = "ayp-pk-oVf"; */
+"ayp-pk-oVf.normalTitle" = "9";
+
+/* Class = "UIButton"; normalTitle = "7"; ObjectID = "cWI-xF-nra"; */
+"cWI-xF-nra.normalTitle" = "7";
+
+/* Class = "UIButton"; normalTitle = "1"; ObjectID = "gTd-iY-C8P"; */
+"gTd-iY-C8P.normalTitle" = "1";
+
+/* Class = "UIButton"; normalTitle = "Pausar scan"; ObjectID = "kQu-h5-fKh"; */
+"kQu-h5-fKh.normalTitle" = "Pause scan";
+
+/* Class = "UIButton"; normalTitle = "AÑADIR"; ObjectID = "l5S-qA-gY5"; */
+"l5S-qA-gY5.normalTitle" = "ADD";
+
+/* Class = "UILabel"; text = "Code of product"; ObjectID = "m9X-vx-0Eg"; */
+"m9X-vx-0Eg.text" = "Code of product";
+
+/* Class = "UILabel"; text = "Escoge función"; ObjectID = "nr1-Qb-o6q"; */
+"nr1-Qb-o6q.text" = "Choose function";
+
+/* Class = "UIButton"; normalTitle = "4"; ObjectID = "o2c-Cn-FQc"; */
+"o2c-Cn-FQc.normalTitle" = "4";
+
+/* Class = "UILabel"; text = "Tamaño"; ObjectID = "qUt-Ri-F92"; */
+"qUt-Ri-F92.text" = "Size";
+
+/* Class = "UIButton"; normalTitle = "5"; ObjectID = "qjc-rV-Qux"; */
+"qjc-rV-Qux.normalTitle" = "5";
+
+/* Class = "UILabel"; text = "Escaneando estado de productos"; ObjectID = "rBY-T3-7Lu"; */
+"rBY-T3-7Lu.text" = "Scan products state";
+
+/* Class = "UIButton"; normalTitle = "6"; ObjectID = "sRJ-Kb-mlc"; */
+"sRJ-Kb-mlc.normalTitle" = "6";
+
+/* Class = "UIButton"; normalTitle = "AÑADIR"; ObjectID = "wAA-9L-Epf"; */
+"wAA-9L-Epf.normalTitle" = "ADD";
+
+/* Class = "UIButton"; normalTitle = "2"; ObjectID = "yam-2K-Lvm"; */
+"yam-2K-Lvm.normalTitle" = "2";
+
+/* Class = "UILabel"; text = "Consultar Producto"; ObjectID = "z1f-oB-Eqv"; */
+"z1f-oB-Eqv.text" = "Consult Product";
+

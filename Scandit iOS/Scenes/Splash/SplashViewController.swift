@@ -1,9 +1,9 @@
 //
-//  SplashViewModel.swift
+//  SplashViewController.swift
 //  Scandit iOS
 //
-//  Created by 67883058 on 09/03/2020.
-//  Copyright © 2020 IECISA. All rights reserved.
+//  Created by Luis Martínez Moreno on 09/04/21.
+//  Copyright © 2021 IECISA. All rights reserved.
 //
 
 import Foundation
